@@ -6,7 +6,9 @@ const Navbar = () => {
   return (
     <>
       <div className="nav-container">
-        <div className="logo">ShiftLogger</div>
+        <div className="logo">
+          <Link to="/">ShiftLogger</Link>
+        </div>
         <div className="add-log">
           <Link to="/create-log">+</Link>
         </div>

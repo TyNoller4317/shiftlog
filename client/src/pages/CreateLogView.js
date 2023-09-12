@@ -15,7 +15,7 @@ const CreateLogView = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    fetch("/api/shiftlog", {
+    fetch("https://shiftlog-backend.onrender.com/api/shiftlog", {
       method: "POST",
       body: JSON.stringify({
         ticket,
