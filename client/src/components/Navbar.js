@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="logo">ShiftLogger</div>
         <div className="add-log">
-          <a href="/create-log">+</a>
+          <Link to="/create-log">+</Link>
         </div>
       </div>
     </>
