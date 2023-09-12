@@ -6,7 +6,7 @@ const ShiftLogView = () => {
   const [backendData, setBackendData] = useState([{}]);
 
   useEffect(() => {
-    fetch("/api/shiftlog")
+    fetch("100.20.92.101/api/shiftlog")
       .then((response) => response.json())
       .then((data) => setBackendData(data));
   }, []);
