@@ -14,7 +14,7 @@ const app = express();
 const port = process.env.PORT || 8001;
 
 app.use(express.json());
-app.use(cores(corsOptions));
+app.use(cors(corsOptions));
 app.use("/api/shiftlog", shiftlogRoutes);
 app.use("/api/users", userRoutes);
 
