@@ -6,7 +6,7 @@ const connectDb = require("./config/dbConnection");
 const cors = require("cors");
 
 const corsOptions = {
-  origin: "https://shiftlog-frontend.onrender.com/",
+  origin: "https://shiftlog-frontend.onrender.com",
 };
 
 connectDb();
