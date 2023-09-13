@@ -10,11 +10,15 @@ const CreateLogView = () => {
   const [notes, setNotes] = useState();
   const [date, setDate] = useState();
 
+  const [backendData, setBackendData] = useState();
+
   const navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
 
+    //production https://shiftlog-backend.onrender.com/api/shiftlog
+    //test /api/shiftlog
     fetch("https://shiftlog-backend.onrender.com/api/shiftlog", {
       method: "POST",
       body: JSON.stringify({

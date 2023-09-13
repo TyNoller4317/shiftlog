@@ -1,17 +1,35 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/ShiftLogView.css";
+import { Link } from "react-router-dom";
 
 const ShiftLogView = () => {
   const [backendData, setBackendData] = useState([{}]);
+  const [deleteData, setDeleteData] = useState([{}]);
 
+  //production url https://shiftlog-backend.onrender.com/api/shiftlog
+  //testing url /api/shiftlog
   useEffect(() => {
     fetch("https://shiftlog-backend.onrender.com/api/shiftlog")
       .then((response) => response.json())
       .then((data) => setBackendData(data));
   }, []);
 
-  console.log(backendData);
+  const onDelete = (id) => {
+    fetch(`/api/shiftlog/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log("Status 200 OK");
+        } else {
+          throw new Error("Cannot Delete");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <>
@@ -30,7 +48,9 @@ const ShiftLogView = () => {
 
           {backendData.map((shift, i) => (
             <tr key={i}>
-              <td>{shift.date}</td>
+              <td>
+                <Link to={`/${shift._id}`}>{shift.date}</Link>
+              </td>
               <td>{shift.ticket}</td>
               <td>{shift.customer}</td>
               <td>{shift.walkthrough}</td>

@@ -1,8 +1,8 @@
 .nav-container {
     width: 100%;
     height: 80px;
-    background-color: #37393a;
-    color: #E8EEF2;
+    background-color: #22577a;
+    color: #C7F9CC;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,9 +14,14 @@
     margin-left: 40px;
 }
 
+.logo a {
+    color: #C7F9CC;
+    text-decoration: none;
+}
+
 .nav-container .add-log a{
     margin-right: 40px;
-    color: white;
+    color: #C7F9CC;
     text-decoration: none;
     font-size: 32px;
 }

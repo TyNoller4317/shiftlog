@@ -6,7 +6,7 @@ const AsyncHandler = require("express-async-handler");
 //@access public
 const getShiftLogs = AsyncHandler(async (req, res) => {
   const shift = await Shift.find();
-  console.log(shift);
+
   res.status(200).json(shift);
 });
 
@@ -60,11 +60,26 @@ const updateShiftLog = AsyncHandler(async (req, res) => {
   res.status(200).json(updatedShift);
 });
 
-//@description Create a Shift Log
-//@route POST /api/shiftlog
+//@description Delete a Shift Log
+//@route DELETE /api/shiftlog
 //@access public
 const deleteShiftLog = AsyncHandler(async (req, res) => {
-  res.status(200).json({ message: "Delete shiftlog" });
+  const shift = await Shift.findById(req.params.id);
+
+  console.log(shift);
+
+  if (!shift) {
+    res.status(404);
+    throw new Error("Shift not found");
+  }
+
+  // // if (shift.user_id.toString() !== req.user.id) {
+  // //   res.status(403);
+  // //   throw new Error("User dont have permission to delete other user contacts!");
+  // // }
+
+  await Shift.deleteOne({ _id: req.params.id });
+  res.status(200).json(shift);
 });
 
 module.exports = {

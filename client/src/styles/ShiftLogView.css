@@ -9,9 +9,18 @@
 }
 
 .table, th {
-    background-color: #37393a;
-    border: 1px solid #37393a;  
+    background-color: #22577A;
     color: #E8EEF2;
+}
+
+td a {
+    color: black;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+td a:hover, a:focus {
+    color: #22577A;
 }
 
 tr:nth-child(odd) {
@@ -19,5 +28,5 @@ tr:nth-child(odd) {
 }
 
 tr:nth-child(even) {
-    background-color: #c1c1c1;
+    background-color: #e3e3e3;
 }

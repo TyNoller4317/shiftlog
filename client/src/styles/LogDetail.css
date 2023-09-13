@@ -1,0 +1,21 @@
+.log-detail-container {
+    width: 100%;
+    padding: 125px 0;
+}
+
+.log-detail-card {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.log-detail-card a {
+    background-color: #22577A;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+}

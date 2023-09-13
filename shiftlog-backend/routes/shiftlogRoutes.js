@@ -24,6 +24,6 @@ router.post("/", createShiftLog);
 router.put("/:id", updateShiftLog);
 
 // Delete Shift Log
-router.delete("/", deleteShiftLog);
+router.delete("/:id", deleteShiftLog);
 
 module.exports = router;

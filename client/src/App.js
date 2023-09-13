@@ -7,6 +7,8 @@ import Homepage from "../src/pages/Homepage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CreateLogView from "./pages/CreateLogView";
+import LogDetail from "./pages/LogDetail";
+import DeleteLog from "./pages/deleteLog";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/create-log" element={<CreateLogView />} />
+          <Route path="/:id" element={<LogDetail />} />
+          <Route path="/delete/:id" element={<DeleteLog />} />
         </Routes>
       </BrowserRouter>
     </>
