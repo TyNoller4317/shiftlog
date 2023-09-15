@@ -2,24 +2,29 @@ const mongoose = require("mongoose");
 
 const shiftSchema = mongoose.Schema(
   {
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
     ticket: {
       type: String,
       required: [true, "Please enter a ticket!"],
-    },
-    customer: {
-      type: String,
-      required: [true, "Please enter a customer!"],
     },
     walkthrough: {
       type: String,
       required: [true, "Please enter a walkthrough!"],
     },
-    alarms: {
+    critical_updates: {
       type: String,
       required: [true, "Please enter an alarm!"],
     },
-    notes: {
+    ticket_updates: {
       type: String,
+    },
+    log_name: {
+      type: String,
+      required: [true, "Please enter your name"],
     },
     date: {
       type: String,

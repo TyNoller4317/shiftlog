@@ -1,0 +1,44 @@
+:root {
+    --raisin-black: #2e2c2f;
+    --paynes-gray: #475b63;
+    --cambridge-blue: #729b79;
+    --ash-gray: #BACDB0;
+    --lavendar-blush: #f3e8ee;
+}
+
+.landing-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--raisin-black)
+}
+
+.landing-title {
+    text-align: center;
+}
+
+.landing-title span {
+    color: var(--cambridge-blue);
+}
+
+.landing-title h1 {
+    font-size: 72px;
+    font-weight: bold;
+}
+
+.landing-links{
+    padding: 15px;
+}
+
+.landing-links a {
+    text-decoration: none;
+    font-size: 18px;
+    background: var(--raisin-black);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 0 5px;
+    color: white;
+}

@@ -1,62 +1,66 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/Login.css";
+import { Link, useNavigate } from "react-router-dom";
+import LoginImage from "../images/login_image.svg";
+import { useLogin } from "../hooks/useLogin";
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
+  const { login, error, isLoading } = useLogin();
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
-    fetch("/api/users/login", {
-      method: "POST",
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log("Status 200 OK! ");
-        } else {
-          throw new Error("Error logging in please try again!");
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        alert("Error logging in please try again!");
-      });
+    await login(email, password);
+    navigate("/shiftlog");
   };
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
-      <div className="form-container">
-        <h1>Login</h1>
-        <form method="POST" className="loginForm" onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-          />
-          <input
-            type="text"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            required
-          />
-          <input type="submit" value="Login" className="submit" />
-        </form>
+      <div className="login-container">
+        <div className="login-image">
+          <img src={LoginImage} alt="" />
+        </div>
+
+        <div className="form-container">
+          <h1>Login</h1>
+          <form method="POST" className="loginForm" onSubmit={onSubmit}>
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              required
+            />
+            <input
+              type="submit"
+              value="Login"
+              className="submit"
+              disabled={isLoading}
+            />
+            {/* <p>
+              Don't have an account?{" "}
+              <Link to="/register" className="sign-up">
+                Sign Up
+              </Link>
+            </p> */}
+          </form>
+          {error && <div className="error">{error}</div>}
+        </div>
       </div>
     </>
   );

@@ -1,3 +1,11 @@
+:root {
+    --raisin-black: #2e2c2f;
+    --paynes-gray: #475b63;
+    --cambridge-blue: #729b79;
+    --ash-gray: #BACDB0;
+    --lavendar-blush: #f3e8ee;
+}
+
 .shiftlog-container {
     width: 100%;
     height: 100%;
@@ -9,8 +17,7 @@
 }
 
 .table, th {
-    background-color: #22577A;
-    color: #E8EEF2;
+    color: var(--raisin-black);
 }
 
 td a {
@@ -20,7 +27,7 @@ td a {
 }
 
 td a:hover, a:focus {
-    color: #22577A;
+    color: var(--cambridge-blue);
 }
 
 tr:nth-child(odd) {

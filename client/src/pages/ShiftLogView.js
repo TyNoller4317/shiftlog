@@ -2,34 +2,23 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/ShiftLogView.css";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const ShiftLogView = () => {
   const [backendData, setBackendData] = useState([{}]);
-  const [deleteData, setDeleteData] = useState([{}]);
+  const { user } = useAuthContext();
 
   //production url https://shiftlog-backend.onrender.com/api/shiftlog
   //testing url /api/shiftlog
   useEffect(() => {
-    fetch("https://shiftlog-backend.onrender.com/api/shiftlog")
+    fetch("https://shiftlog-backend.onrender.com/api/shiftlog", {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => setBackendData(data));
   }, []);
-
-  const onDelete = (id) => {
-    fetch(`/api/shiftlog/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log("Status 200 OK");
-        } else {
-          throw new Error("Cannot Delete");
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
 
   return (
     <>
@@ -39,11 +28,11 @@ const ShiftLogView = () => {
         <table className="shift-table">
           <tr>
             <th>Date</th>
-            <th>Ticket</th>
-            <th>Customer</th>
+            <th>Name</th>
+            <th>Tickets</th>
             <th>Walkthrough</th>
-            <th>Alarms</th>
-            <th>Notes</th>
+            <th>Critical Site Updates</th>
+            <th>Ticket Updates</th>
           </tr>
 
           {backendData.map((shift, i) => (
@@ -51,11 +40,11 @@ const ShiftLogView = () => {
               <td>
                 <Link to={`/${shift._id}`}>{shift.date}</Link>
               </td>
+              <td>{shift.log_name}</td>
               <td>{shift.ticket}</td>
-              <td>{shift.customer}</td>
               <td>{shift.walkthrough}</td>
-              <td>{shift.alarms}</td>
-              <td>{shift.notes}</td>
+              <td>{shift.critical_updates}</td>
+              <td>{shift.ticket_updates}</td>
             </tr>
           ))}
         </table>

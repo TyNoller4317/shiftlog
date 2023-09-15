@@ -1,36 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
+import { useSignup } from "../hooks/useSignup";
 
 const Register = () => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const { signup, error, isLoading } = useSignup();
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
-    fetch("/api/users/register", {
-      method: "POST",
-      body: JSON.stringify({
-        username: username,
-        email: email,
-        password: password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log("Status 200 OK! ");
-        } else {
-          throw new Error("Error registering in please try again!");
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        alert("Error registering in please try again!");
-      });
+    await signup(username, email, password);
   };
 
   return (
@@ -56,15 +38,25 @@ const Register = () => {
             required
           />
           <input
-            type="text"
+            type="password"
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             required
           />
-          <input type="submit" value="Register" className="submit" />
+          <input
+            type="submit"
+            value="Register"
+            className="submit"
+            disabled={isLoading}
+          />
+          <p>
+            Already have an account? <Link to="/login">Sign In</Link>
+          </p>
         </form>
+
+        {error && <div className="error">{error}</div>}
       </div>
     </>
   );
