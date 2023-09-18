@@ -41,6 +41,10 @@ const Navbar = () => {
                 <Link to="/create-log">Create Log</Link>
               </Dropdown.Item>
               <Dropdown.Item>
+                <Link to="/create-log">Profile</Link>
+              </Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item>
                 <Link onClick={handleClick}>Logout</Link>
               </Dropdown.Item>
             </Dropdown.Menu>

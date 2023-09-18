@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "../styles/ShiftLogView.css";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
+import Table from "@mui/joy/Table";
 
 const ShiftLogView = () => {
   const [backendData, setBackendData] = useState([{}]);
@@ -24,8 +25,8 @@ const ShiftLogView = () => {
     <>
       <Navbar />
 
-      <div className="shift-container">
-        <table className="shift-table">
+      <Table aria-label="basic table">
+        <thead>
           <tr>
             <th>Date</th>
             <th>Name</th>
@@ -34,7 +35,8 @@ const ShiftLogView = () => {
             <th>Critical Site Updates</th>
             <th>Ticket Updates</th>
           </tr>
-
+        </thead>
+        <tbody>
           {backendData.map((shift, i) => (
             <tr key={i}>
               <td>
@@ -47,8 +49,8 @@ const ShiftLogView = () => {
               <td>{shift.ticket_updates}</td>
             </tr>
           ))}
-        </table>
-      </div>
+        </tbody>
+      </Table>
     </>
   );
 };
