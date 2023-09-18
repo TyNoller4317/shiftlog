@@ -9,7 +9,7 @@ const {
 const validateToken = require("../middleware/validateTokenHandler");
 const router = express.Router();
 
-// router.use(validateToken);
+router.use(validateToken);
 
 // Get all ShiftLogs
 router.get("/", getShiftLogs);
