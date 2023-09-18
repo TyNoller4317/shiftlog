@@ -28,7 +28,7 @@ const Login = () => {
         </div>
 
         <div className="form-container">
-          <h1>Proxima ShiftLog Login</h1>
+          <h1>ShiftLog Login</h1>
           <form method="POST" className="loginForm" onSubmit={onSubmit}>
             <input
               type="text"
