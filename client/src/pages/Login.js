@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/Login.css";
 import { Link, useNavigate } from "react-router-dom";
-import LoginImage from "../images/login_image.svg";
+import LoginImage from "../images/team_up.svg";
 import { useLogin } from "../hooks/useLogin";
 
 const Login = () => {
@@ -28,7 +28,7 @@ const Login = () => {
         </div>
 
         <div className="form-container">
-          <h1>Login</h1>
+          <h1>Databank ShiftLog Login</h1>
           <form method="POST" className="loginForm" onSubmit={onSubmit}>
             <input
               type="text"

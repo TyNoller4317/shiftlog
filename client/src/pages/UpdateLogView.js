@@ -11,7 +11,7 @@ const UpdateLogView = () => {
   const { user } = useAuthContext();
 
   useEffect(() => {
-    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog${logId.id}`, {
+    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -31,7 +31,7 @@ const UpdateLogView = () => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        authorization: `Bearer ${getToken}`,
+        authorization: `Bearer ${user.accessToken}`,
       },
       body: JSON.stringify(endData),
     })
