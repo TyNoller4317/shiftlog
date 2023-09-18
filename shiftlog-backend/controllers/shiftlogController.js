@@ -6,7 +6,7 @@ const AsyncHandler = require("express-async-handler");
 //@access public
 const getShiftLogs = AsyncHandler(async (req, res) => {
   // to make it so you can only see your users shifts add this to find function { user_id: req.user.id }
-  const shift = await Shift.find();
+  const shift = await Shift.find({ user_id: req.user.id });
 
   res.status(200).json(shift);
 });

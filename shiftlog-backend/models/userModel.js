@@ -15,6 +15,10 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter a password!"],
     },
+    site: {
+      type: String,
+      required: [true, "Please select a site!"],
+    },
   },
   {
     timestamps: true,

@@ -74,7 +74,7 @@ const CreateLogView = () => {
             placeholder="Critical Site Updates"
             required
           />
-          <input
+          <textarea
             type="text"
             name="ticket_updates"
             value={ticket_updates}

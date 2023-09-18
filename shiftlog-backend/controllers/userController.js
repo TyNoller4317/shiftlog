@@ -7,9 +7,9 @@ const jwt = require("jsonwebtoken");
 //@route POST /api/users/register
 //@access public
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, site } = req.body;
 
-  if (!username || !email || !password) {
+  if (!username || !email || !password || !site) {
     res.status(400);
     throw new Error("All fields are manditory!");
   }
@@ -27,6 +27,7 @@ const registerUser = asyncHandler(async (req, res) => {
     username,
     email,
     password: hashPassword,
+    site,
   });
 
   console.log(`User created ${user}`);
@@ -67,7 +68,7 @@ const loginUser = asyncHandler(async (req, res) => {
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "30m" }
     );
-    res.status(200).json({ accessToken, email, password });
+    res.status(200).json({ accessToken, email, password, site: user.site });
   } else {
     res.status(401);
     throw new Error("Email or password is not valid");

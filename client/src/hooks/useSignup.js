@@ -6,20 +6,18 @@ export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
 
-  const signup = async (username, email, password) => {
+  const signup = async (username, email, password, site) => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch(
-      "https://shiftlog-backend.onrender.com/api/users/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, email, password }),
-      }
-    );
+    //prodution https://shiftlog-backend.onrender.com/api/users/register
+    const response = await fetch("/api/users/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, email, password, site }),
+    });
 
     const json = await response.json();
 

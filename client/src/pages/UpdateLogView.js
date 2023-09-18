@@ -10,8 +10,9 @@ const UpdateLogView = () => {
   const navigate = useNavigate();
   const { user } = useAuthContext();
 
+  //production https://shiftlog-backend.onrender.com
   useEffect(() => {
-    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
+    fetch(`/api/shiftlog/${logId.id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -99,7 +100,7 @@ const UpdateLogView = () => {
             placeholder="Alarms"
             required
           />
-          <input
+          <textarea
             type="text"
             name="ticket_updates"
             value={endData.ticket_updates}

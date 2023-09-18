@@ -19,24 +19,22 @@ export const useCreate = () => {
     setIsLoading(false);
     setError(null);
 
-    const response = await fetch(
-      "https://shiftlog-backend.onrender.com/api/shiftlog",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${user.accessToken}`,
-        },
-        body: JSON.stringify({
-          ticket,
-          walkthrough,
-          critical_updates,
-          ticket_updates,
-          log_name,
-          date,
-        }),
-      }
-    );
+    //production https://shiftlog-backend.onrender.com/api/shiftlog
+    const response = await fetch("/api/shiftlog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${user.accessToken}`,
+      },
+      body: JSON.stringify({
+        ticket,
+        walkthrough,
+        critical_updates,
+        ticket_updates,
+        log_name,
+        date,
+      }),
+    });
 
     const json = await response.json();
 

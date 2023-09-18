@@ -5,6 +5,8 @@ import NavImage from "../images/Databank.gif";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
+import Dropdown from "react-bootstrap/Dropdown";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const Navbar = () => {
   const [userData, setUserData] = useState([{}]);
@@ -28,17 +30,22 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="logo">
           <Link to="/shiftlog">
-            <img src={NavImage} alt="" />| {userData[0].username}
+            <img src={NavImage} alt="" />| {user.site}
           </Link>
         </div>
         <div className="add-log">
-          <Link to="/create-log">+</Link>
+          <Dropdown>
+            <Dropdown.Toggle variant="" id="dropdown-basic"></Dropdown.Toggle>
 
-          {user && (
-            <Link onClick={handleClick} className="logout-btn">
-              Logout
-            </Link>
-          )}
+            <Dropdown.Menu>
+              <Dropdown.Item>
+                <Link to="/create-log">Create Log</Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link onClick={handleClick}>Logout</Link>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </div>
     </>

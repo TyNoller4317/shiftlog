@@ -11,10 +11,10 @@ const Login = () => {
   const navigate = useNavigate();
   const { login, error, isLoading } = useLogin();
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
-    login(email, password);
+    await login(email, password);
     navigate("/shiftlog");
   };
 

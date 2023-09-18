@@ -11,7 +11,7 @@ const ShiftLogView = () => {
   //production url https://shiftlog-backend.onrender.com/api/shiftlog
   //testing url /api/shiftlog
   useEffect(() => {
-    fetch("https://shiftlog-backend.onrender.com/api/shiftlog", {
+    fetch("/api/shiftlog", {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },

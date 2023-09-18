@@ -15,7 +15,7 @@ const LogDetail = () => {
   //production url https://shiftlog-backend.onrender.com/api/shiftlog/:id
   //testing url /api/shiftlog/:id
   useEffect(() => {
-    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
+    fetch(`/api/shiftlog/${logId.id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },

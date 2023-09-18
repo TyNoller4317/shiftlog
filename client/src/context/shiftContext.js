@@ -18,8 +18,6 @@ export const ShiftContextProvider = ({ children }) => {
     shift: null,
   });
 
-  console.log("Shift Context State: ", state);
-
   return (
     <ShiftContext.Provider value={{ ...state, dispatch }}>
       {children}
