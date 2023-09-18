@@ -11,13 +11,16 @@ export const useSignup = () => {
     setError(null);
 
     //prodution https://shiftlog-backend.onrender.com/api/users/register
-    const response = await fetch("/api/users/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, email, password, site }),
-    });
+    const response = await fetch(
+      "https://shiftlog-backend.onrender.com/api/users/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, email, password, site }),
+      }
+    );
 
     const json = await response.json();
 
