@@ -26,6 +26,7 @@ const Navbar = () => {
   };
 
   return (
+    //new nav
     <>
       <div className="nav-container">
         <div className="logo">
