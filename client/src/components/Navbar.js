@@ -29,9 +29,7 @@ const Navbar = () => {
     <>
       <div className="nav-container">
         <div className="logo">
-          <Link to="/shiftlog">
-            <img src={NavImage} alt="" />| {user.site}
-          </Link>
+          <Link to="/shiftlog">Proxima Shiftlog | {user.site}</Link>
         </div>
         <div className="add-log">
           <Dropdown>
