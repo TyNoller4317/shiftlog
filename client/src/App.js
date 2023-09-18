@@ -22,7 +22,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route
             path="/shiftlog"
-            element={user ? <ShiftLogView /> : <Navigate to="/" />}
+            element={<ShiftLogView />}
+            // element={user ? <ShiftLogView /> : <Navigate to="/" />}
           />
           {/* <Route path="/login" element={<Login />} /> */}
           {/* <Route path="/register" element={<Register />} /> */}
