@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, redirect } from "react-router-dom";
 import LoginImage from "../images/team_up.svg";
 import { useLogin } from "../hooks/useLogin";
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
 
     await login(email, password);
-    navigate("/shiftlog");
+    redirect("/shiftlog");
   };
 
   return (
