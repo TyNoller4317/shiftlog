@@ -11,6 +11,7 @@ import DeleteLog from "./pages/deleteLog";
 import LandingPage from "./pages/LandingPage";
 import UpdateLogView from "./pages/UpdateLogView";
 import { useAuthContext } from "./hooks/useAuthContext";
+import ProfileView from "./pages/ProfileView";
 
 function App() {
   const { user } = useAuthContext();
@@ -24,6 +25,7 @@ function App() {
             path="/shiftlog"
             element={user ? <ShiftLogView /> : <Navigate to="/" />}
           />
+
           {/* <Route path="/login" element={<Login />} /> */}
           {/* <Route path="/register" element={<Register />} /> */}
           <Route
@@ -42,6 +44,7 @@ function App() {
             path="/update/:id"
             element={user ? <UpdateLogView /> : <Navigate to="/" />}
           />
+          <Route path="/profile" element={<ProfileView />} />
         </Routes>
       </BrowserRouter>
     </>

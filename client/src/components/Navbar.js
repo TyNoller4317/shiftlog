@@ -10,6 +10,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 
 const Navbar = () => {
   const [userData, setUserData] = useState([{}]);
+  const [open, setOpen] = React.useState(false);
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const navigate = useNavigate();
@@ -35,13 +36,12 @@ const Navbar = () => {
         <div className="add-log">
           <Dropdown>
             <Dropdown.Toggle variant="" id="dropdown-basic"></Dropdown.Toggle>
-
             <Dropdown.Menu>
               <Dropdown.Item>
                 <Link to="/create-log">Create Log</Link>
               </Dropdown.Item>
               <Dropdown.Item>
-                <Link to="/create-log">Profile</Link>
+                <Link to="/profile">Profile</Link>
               </Dropdown.Item>
               <Dropdown.Divider />
               <Dropdown.Item>

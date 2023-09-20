@@ -48,6 +48,7 @@ textarea {
     width: 500px;
     border-radius: 5px;
     margin-top: 20px;
+    padding-left: 10px;
     border: 1px solid #eee;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }

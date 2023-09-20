@@ -4,12 +4,14 @@ import "../styles/Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import LoginImage from "../images/team_up.svg";
 import { useLogin } from "../hooks/useLogin";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
   const { login, error, isLoading } = useLogin();
+  const { user } = useAuthContext();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -28,8 +30,8 @@ const Login = () => {
         </div>
 
         <div className="form-container">
-          <h1>ShiftLog Login</h1>
           <form method="POST" className="loginForm" onSubmit={onSubmit}>
+            <h1>ShiftLog Login</h1>
             <input
               type="text"
               name="email"
@@ -59,7 +61,6 @@ const Login = () => {
               </Link>
             </p> */}
           </form>
-          <Link to="/shiftlog"></Link>
           {error && <div className="error">{error}</div>}
         </div>
       </div>

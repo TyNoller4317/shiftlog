@@ -4,6 +4,7 @@ import "../styles/ShiftLogView.css";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Table from "@mui/joy/Table";
+import CreateLogModal from "./CreateLogModal";
 
 const ShiftLogView = () => {
   const [backendData, setBackendData] = useState([{}]);
@@ -12,7 +13,7 @@ const ShiftLogView = () => {
   //production url https://shiftlog-backend.onrender.com/api/shiftlog
   //testing url /api/shiftlog
   useEffect(() => {
-    fetch("https://shiftlog-backend.onrender.com/api/shiftlog", {
+    fetch("/api/shiftlog", {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -51,6 +52,8 @@ const ShiftLogView = () => {
           ))}
         </tbody>
       </Table>
+
+      {/* <CreateLogModal /> */}
     </>
   );
 };
