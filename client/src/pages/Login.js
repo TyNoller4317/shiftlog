@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
 
     await login(email, password);
-    redirect("/shiftlog");
+    navigate("/shiftlog");
   };
 
   return (
