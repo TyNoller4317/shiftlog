@@ -54,6 +54,7 @@ const Login = () => {
               className="submit"
               disabled={isLoading}
             />
+            <Link to="/shiftlog"></Link>
             {/* <p>
               Don't have an account?{" "}
               <Link to="/register" className="sign-up">
@@ -62,7 +63,6 @@ const Login = () => {
             </p> */}
           </form>
           {error && <div className="error">{error}</div>}
-          <Link to="/shiftlog" />
         </div>
       </div>
     </>
