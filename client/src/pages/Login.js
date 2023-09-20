@@ -62,6 +62,7 @@ const Login = () => {
             </p> */}
           </form>
           {error && <div className="error">{error}</div>}
+          <Link to="/shiftlog" />
         </div>
       </div>
     </>
