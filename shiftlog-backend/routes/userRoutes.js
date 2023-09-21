@@ -4,6 +4,7 @@ const {
   loginUser,
   currentUser,
   getAllUsers,
+  updateUser,
 } = require("../controllers/userController");
 const validateToken = require("../middleware/validateTokenHandler");
 
@@ -20,5 +21,7 @@ router.get("/currentUser/:id", validateToken, currentUser);
 
 //get all users
 router.get("/", getAllUsers);
+
+router.put("/:id", updateUser);
 
 module.exports = router;

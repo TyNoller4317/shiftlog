@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/ShiftLogView.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Table from "@mui/joy/Table";
 import CreateLogModal from "./CreateLogModal";
@@ -22,44 +22,40 @@ const ShiftLogView = () => {
       .then((data) => setBackendData(data));
   }, []);
 
-  if (!user) {
-    <Navigate replace to="/" />;
-  } else {
-    return (
-      <>
-        <Navbar />
+  return (
+    <>
+      <Navbar />
 
-        <Table aria-label="basic table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Name</th>
-              <th>Tickets</th>
-              <th>Walkthrough</th>
-              <th>Critical Site Updates</th>
-              <th>Ticket Updates</th>
+      <Table aria-label="basic table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Tickets</th>
+            <th>Walkthrough</th>
+            <th>Critical Site Updates</th>
+            <th>Ticket Updates</th>
+          </tr>
+        </thead>
+        <tbody>
+          {backendData.map((shift, i) => (
+            <tr key={i}>
+              <td>
+                <Link to={`/${shift._id}`}>{shift.date}</Link>
+              </td>
+              <td>{shift.log_name}</td>
+              <td>{shift.ticket}</td>
+              <td>{shift.walkthrough}</td>
+              <td>{shift.critical_updates}...</td>
+              <td>{shift.ticket_updates}...</td>
             </tr>
-          </thead>
-          <tbody>
-            {backendData.map((shift, i) => (
-              <tr key={i}>
-                <td>
-                  <Link to={`/${shift._id}`}>{shift.date}</Link>
-                </td>
-                <td>{shift.log_name}</td>
-                <td>{shift.ticket}</td>
-                <td>{shift.walkthrough}</td>
-                <td>{shift.critical_updates}</td>
-                <td>{shift.ticket_updates}</td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
+          ))}
+        </tbody>
+      </Table>
 
-        {/* <CreateLogModal /> */}
-      </>
-    );
-  }
+      {/* <CreateLogModal /> */}
+    </>
+  );
 };
 
 export default ShiftLogView;

@@ -2,16 +2,14 @@ import { React, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import ShiftLogView from "../src/pages/ShiftLogView";
-import Navbar from "../src/components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CreateLogView from "./pages/CreateLogView";
 import LogDetail from "./pages/LogDetail";
 import DeleteLog from "./pages/deleteLog";
-import LandingPage from "./pages/LandingPage";
 import UpdateLogView from "./pages/UpdateLogView";
-import { useAuthContext } from "./hooks/useAuthContext";
 import ProfileView from "./pages/ProfileView";
+import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
   const { user } = useAuthContext();
@@ -25,9 +23,6 @@ function App() {
             path="/shiftlog"
             element={user ? <ShiftLogView /> : <Navigate to="/" />}
           />
-
-          {/* <Route path="/login" element={<Login />} /> */}
-          {/* <Route path="/register" element={<Register />} /> */}
           <Route
             path="/create-log"
             element={user ? <CreateLogView /> : <Navigate to="/" />}
@@ -44,7 +39,10 @@ function App() {
             path="/update/:id"
             element={user ? <UpdateLogView /> : <Navigate to="/" />}
           />
-          <Route path="/profile" element={<ProfileView />} />
+          <Route
+            path="/profile"
+            element={user ? <ProfileView /> : <Navigate to="/" />}
+          />
         </Routes>
       </BrowserRouter>
     </>
