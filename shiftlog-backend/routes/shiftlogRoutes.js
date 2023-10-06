@@ -6,10 +6,7 @@ const {
   deleteShiftLog,
   getShiftLog,
 } = require("../controllers/shiftlogController");
-const validateToken = require("../middleware/validateTokenHandler");
 const router = express.Router();
-
-router.use(validateToken);
 
 // Get all ShiftLogs
 router.get("/", getShiftLogs);

@@ -1,37 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
-import NavImage from "../images/Databank.gif";
-import { useLogout } from "../hooks/useLogout";
-import { useAuthContext } from "../hooks/useAuthContext";
-import { useNavigate } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
-import { IoMdArrowDropdown } from "react-icons/io";
+import CreateLogModal from "../pages/CreateLogModal";
 
 const Navbar = () => {
-  const [userData, setUserData] = useState([{}]);
-  const [open, setOpen] = React.useState(false);
-  const { logout } = useLogout();
-  const { user } = useAuthContext();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    fetch("/api/users")
-      .then((response) => response.json())
-      .then((data) => setUserData(data));
-  }, []);
-
-  const handleClick = () => {
-    logout();
-    navigate("/");
-  };
-
   return (
-    //new nav
     <>
       <div className="nav-container">
         <div className="logo">
-          <Link to="/shiftlog">Shiftlog | {user.site}</Link>
+          <Link to="/">Shiftlog | Den3</Link>
         </div>
         <div className="add-log">
           <Dropdown>
@@ -39,14 +17,15 @@ const Navbar = () => {
             <Dropdown.Menu>
               <Dropdown.Item>
                 <Link to="/create-log">Create Log</Link>
+                {/* <CreateLogModal /> */}
               </Dropdown.Item>
               <Dropdown.Item>
-                <Link to="/profile">Profile</Link>
+                <Link to="/updates">Updates</Link>
               </Dropdown.Item>
-              <Dropdown.Divider />
+              {/* <Dropdown.Divider />
               <Dropdown.Item>
                 <Link onClick={handleClick}>Logout</Link>
-              </Dropdown.Item>
+              </Dropdown.Item> */}
             </Dropdown.Menu>
           </Dropdown>
         </div>

@@ -1,27 +1,26 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
+// import { useAuthContext } from "../hooks/useAuthContext";
 
 const DeleteLog = () => {
   const logId = useParams();
   const navigate = useNavigate();
-  const getToken = localStorage.getItem("token");
-  const { user } = useAuthContext();
+  // const getToken = localStorage.getItem("token");
+  // const { user } = useAuthContext();
 
   useEffect(() => {
     //production url https://shiftlog-backend.onrender.com/api/shiftlog/:id
     //testing url /api/shiftlog/:id
-    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
+    fetch(`/api/shiftlog/${logId.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        authorization: `Bearer ${user.accessToken}`,
       },
     })
       .then((response) => {
         if (response.status === 200) {
           console.log("Shift Deleted");
-          navigate("/shiftlog");
+          navigate("/");
         } else {
           throw new Error("Shift not deleted");
         }

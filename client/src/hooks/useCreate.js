@@ -1,43 +1,35 @@
 import { useState } from "react";
 import { useShiftContext } from "./useShiftContext";
-import { useAuthContext } from "./useAuthContext";
 
 export const useCreate = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useShiftContext();
-  const { user } = useAuthContext();
 
   const create_shift = async (
     ticket,
     walkthrough,
     critical_updates,
     ticket_updates,
-    log_name,
-    date
+    log_name
   ) => {
     setIsLoading(false);
     setError(null);
 
     //production https://shiftlog-backend.onrender.com/api/shiftlog
-    const response = await fetch(
-      "https://shiftlog-backend.onrender.com/api/shiftlog",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${user.accessToken}`,
-        },
-        body: JSON.stringify({
-          ticket,
-          walkthrough,
-          critical_updates,
-          ticket_updates,
-          log_name,
-          date,
-        }),
-      }
-    );
+    const response = await fetch("/api/shiftlog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ticket,
+        walkthrough,
+        critical_updates,
+        ticket_updates,
+        log_name,
+      }),
+    });
 
     const json = await response.json();
 

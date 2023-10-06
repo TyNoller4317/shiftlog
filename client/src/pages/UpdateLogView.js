@@ -3,18 +3,18 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import "../styles/CreateLogView.css";
-import { useAuthContext } from "../hooks/useAuthContext";
+// import { useAuthContext } from "../hooks/useAuthContext";
 
 const UpdateLogView = () => {
   const [endData, setEndData] = useState({});
   const navigate = useNavigate();
-  const { user } = useAuthContext();
+  // const { user } = useAuthContext();
 
   //production https://shiftlog-backend.onrender.com
   useEffect(() => {
-    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
+    fetch(`/api/shiftlog/${logId.id}`, {
       headers: {
-        authorization: `Bearer ${user.accessToken}`,
+        // authorization: `Bearer ${user.accessToken}`,
       },
     })
       .then((response) => response.json())
@@ -26,11 +26,11 @@ const UpdateLogView = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
+    fetch(`/api/shiftlog/${logId.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        authorization: `Bearer ${user.accessToken}`,
+        // authorization: `Bearer ${user.accessToken}`,
       },
       body: JSON.stringify(endData),
     })
@@ -52,7 +52,7 @@ const UpdateLogView = () => {
       <Navbar />
       <div className="create-form-container">
         <div className="create-form-title">
-          <Link to="/shiftlog" className="icon">
+          <Link to="/" className="icon">
             {<AiOutlineArrowLeft />}
           </Link>
           <h1>Update ShiftLog</h1>
@@ -115,7 +115,7 @@ const UpdateLogView = () => {
             onChange={(e) => setEndData({ ...endData, date: e.target.value })}
             required
           />
-          <input type="submit" value="Update" className="submit" />
+          <input type="submit" value="Update" className="btn-submit" />
         </form>
       </div>
     </>

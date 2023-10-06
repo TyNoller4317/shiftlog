@@ -1,59 +1,32 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/ShiftLogView.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
-import Table from "@mui/joy/Table";
-import CreateLogModal from "./CreateLogModal";
+// import { useAuthContext } from "../hooks/useAuthContext";
+import InfoBanner from "../components/InfoBanner";
+import ShiftViewTable from "../components/ShiftViewTable";
+import { useUpdateData } from "../hooks/useUpdateData";
 
 const ShiftLogView = () => {
-  const [backendData, setBackendData] = useState([{}]);
-  const { user } = useAuthContext();
+  const [shiftData, setShiftData] = useState([{}]);
+  const updateData = useUpdateData();
 
   //production url https://shiftlog-backend.onrender.com/api/shiftlog
   //testing url /api/shiftlog
   useEffect(() => {
-    fetch("https://shiftlog-backend.onrender.com/api/shiftlog", {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
+    fetch("/api/shiftlog", {
+      headers: {},
     })
       .then((response) => response.json())
-      .then((data) => setBackendData(data));
+      .then((data) => setShiftData(data));
   }, []);
+
+  console.log(shiftData);
 
   return (
     <>
       <Navbar />
-
-      <Table aria-label="basic table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Tickets</th>
-            <th>Walkthrough</th>
-            <th>Critical Site Updates</th>
-            <th>Ticket Updates</th>
-          </tr>
-        </thead>
-        <tbody>
-          {backendData.map((shift, i) => (
-            <tr key={i}>
-              <td>
-                <Link to={`/${shift._id}`}>{shift.date}</Link>
-              </td>
-              <td>{shift.log_name}</td>
-              <td>{shift.ticket}</td>
-              <td>{shift.walkthrough}</td>
-              <td>{shift.critical_updates}...</td>
-              <td>{shift.ticket_updates}...</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-
-      {/* <CreateLogModal /> */}
+      <InfoBanner data={updateData} />
+      <ShiftViewTable tableData={shiftData} />
     </>
   );
 };

@@ -14,20 +14,25 @@ const CreateLogView = () => {
   const [date, setDate] = useState();
   const { create_shift, isLoading, error } = useCreate();
   const navigate = useNavigate();
+  const currentDate = new Date();
+  let currentDay = String(currentDate.getDate()).padStart(2, "0");
+  let currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0");
+  let currentYear = currentDate.getFullYear();
+  const fullDate = `${currentYear}-${currentMonth}-${currentDay}`;
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    // setDate(fullDate);
 
     await create_shift(
       ticket,
       walkthrough,
       critical_updates,
       ticket_updates,
-      log_name,
-      date
+      log_name
     );
 
-    navigate("/shiftlog");
+    navigate("/");
   };
 
   return (
@@ -35,7 +40,7 @@ const CreateLogView = () => {
       <Navbar />
       <div className="create-form-container">
         <div className="create-form-title">
-          <Link to="/shiftlog" className="icon">
+          <Link to="/" className="icon">
             {<AiOutlineArrowLeft />}
           </Link>
           <h1>Create ShiftLog</h1>
@@ -82,19 +87,15 @@ const CreateLogView = () => {
             placeholder="Ticket Updates"
             required
           />
-          <input
+          {/* <input
             type="date"
             name="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            placeholder="Ticket Updates"
             required
-          />
-          <input
-            type="submit"
-            value="Create"
-            className="submit"
-            disabled={isLoading}
-          />
+          /> */}
+          <input type="submit" value="Create" className="btn-submit" />
         </form>
 
         {error && <div className="error">{error}</div>}

@@ -6,7 +6,6 @@ const {
   getAllUsers,
   updateUser,
 } = require("../controllers/userController");
-const validateToken = require("../middleware/validateTokenHandler");
 
 const router = express.Router();
 
@@ -17,7 +16,7 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 
 //get current user
-router.get("/currentUser/:id", validateToken, currentUser);
+router.get("/currentUser/:id", currentUser);
 
 //get all users
 router.get("/", getAllUsers);
