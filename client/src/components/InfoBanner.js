@@ -76,7 +76,7 @@ function InfoBanner({ data }) {
         <Editor
           value={update}
           onTextChange={(e) => setUpdate(e.htmlValue)}
-          style={{ height: "200px;", background: "white" }}
+          style={{ height: "350px;", background: "white", marginTop: "15px;" }}
         />
 
         {/* <div className="select">
