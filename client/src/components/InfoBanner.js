@@ -12,6 +12,7 @@ import {
 import { BiExit } from "react-icons/bi";
 import { useUpdate } from "../hooks/useUpdate";
 import { useUpdateData } from "../hooks/useUpdateData";
+import { Editor } from "primereact/editor";
 
 //component
 function InfoBanner({ data }) {
@@ -71,6 +72,13 @@ function InfoBanner({ data }) {
           onChange={(e) => setUpdate(e.target.value)}
           required
         />
+
+        <Editor
+          value={update}
+          onTextChange={(e) => setUpdate(e.htmlValue)}
+          style={{ height: "320px" }}
+        />
+
         {/* <div className="select">
           <select name="importance" onChange={(e) => setColor(e.target.value)}>
             <option value="info">Normal</option>
