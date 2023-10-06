@@ -6,8 +6,6 @@ import CreateLogView from "./pages/CreateLogView";
 import LogDetail from "./pages/LogDetail";
 import DeleteLog from "./pages/deleteLog";
 import UpdateLogView from "./pages/UpdateLogView";
-import ProfileView from "./pages/ProfileView";
-import AdminView from "./pages/AdminView";
 import UpdatesView from "./pages/UpdatesView";
 
 function App() {

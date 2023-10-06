@@ -10,8 +10,6 @@ import Moment from "moment";
 const LogDetail = () => {
   const [backendData, setBackendData] = useState([{}]);
   const logId = useParams();
-  // const getToken = localStorage.getItem("token");
-  // const { user } = useAuthContext();
 
   //production url https://shiftlog-backend.onrender.com/api/shiftlog/:id
   //testing url /api/shiftlog/:id

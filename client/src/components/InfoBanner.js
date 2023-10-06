@@ -37,7 +37,7 @@ function InfoBanner({ data }) {
   };
 
   const handleEditingUpdate = () => {
-    fetch(`/api/updates/${updateId}`, {
+    fetch(`https://shiftlog-backend.onrender.com/api/updates/${updateId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

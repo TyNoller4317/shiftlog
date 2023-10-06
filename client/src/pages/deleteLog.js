@@ -5,12 +5,8 @@ import { useParams, useNavigate } from "react-router-dom";
 const DeleteLog = () => {
   const logId = useParams();
   const navigate = useNavigate();
-  // const getToken = localStorage.getItem("token");
-  // const { user } = useAuthContext();
 
   useEffect(() => {
-    //production url https://shiftlog-backend.onrender.com/api/shiftlog/:id
-    //testing url /api/shiftlog/:id
     fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
       method: "DELETE",
       headers: {
