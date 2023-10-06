@@ -12,7 +12,7 @@ const UpdateLogView = () => {
 
   //production https://shiftlog-backend.onrender.com
   useEffect(() => {
-    fetch(`/api/shiftlog/${logId.id}`, {
+    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
       headers: {
         // authorization: `Bearer ${user.accessToken}`,
       },
@@ -26,7 +26,7 @@ const UpdateLogView = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`/api/shiftlog/${logId.id}`, {
+    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
