@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../styles/ShiftLogView.css";
 import Navbar from "../components/Navbar";
 import InfoBanner from "../components/InfoBanner";
