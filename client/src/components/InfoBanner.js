@@ -65,19 +65,19 @@ function InfoBanner({ data }) {
             <BiExit className="icon" onClick={handleEdit} />
           </div>
         </div>
-        {/* <textarea
+        <textarea
           name="update"
           placeholder="Update"
           value={update}
           onChange={(e) => setUpdate(e.target.value)}
           required
-        /> */}
+        />
 
-        <Editor
+        {/* <Editor
           value={update}
           onTextChange={(e) => setUpdate(e.htmlValue)}
           style={{ height: "350px;", background: "white", marginTop: "15px;" }}
-        />
+        /> */}
 
         {/* <div className="select">
           <select name="importance" onChange={(e) => setColor(e.target.value)}>
