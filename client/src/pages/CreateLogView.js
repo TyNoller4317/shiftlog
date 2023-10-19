@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import "../styles/CreateLogView.css";
 import { useCreate } from "../hooks/useCreate";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const CreateLogView = () => {
   const [ticket, setTicket] = useState();
@@ -47,46 +49,46 @@ const CreateLogView = () => {
         </div>
 
         <form method="POST" className="createForm" onSubmit={onSubmit}>
+          <label>Name: </label>
           <input
             type="text"
             name="name"
             value={log_name}
             onChange={(e) => setLogName(e.target.value)}
-            placeholder="Name"
             required
           />
+          <label>Tickets: </label>
           <input
             type="text"
             name="ticket"
             value={ticket}
             onChange={(e) => setTicket(e.target.value)}
-            placeholder="Tickets"
             required
           />
+          <label>Walkthrough: </label>
           <input
             type="text"
             name="walkthrough"
             value={walkthrough}
             onChange={(e) => setWalkthrough(e.target.value)}
-            placeholder="Walkthrough"
             required
           />
+          <label>Critical Site Updates: </label>
           <input
             type="text"
             name="critical_updates"
             value={critical_updates}
             onChange={(e) => setCriticalUpdates(e.target.value)}
-            placeholder="Critical Site Updates"
             required
           />
-          <textarea
-            type="text"
-            name="ticket_updates"
+          <label>Ticket Updates: </label>
+          <ReactQuill
+            theme="snow"
             value={ticket_updates}
-            onChange={(e) => setTicketUpdates(e.target.value)}
-            placeholder="Ticket Updates"
-            required
+            onChange={setTicketUpdates}
+            className="editor"
           />
+
           {/* <input
             type="date"
             name="date"

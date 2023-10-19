@@ -29,7 +29,7 @@ const LogDetail = () => {
         <div className="log-detail-card">
           <div className="log-detail-card-icons">
             <Link to="/">{<AiOutlineArrowLeft />}</Link>
-            <Link to={`/update/${backendData._id}`}>{<BsPencilSquare />}</Link>
+            {/* <Link to={`/update/${backendData._id}`}>{<BsPencilSquare />}</Link> */}
             <Link to={`/delete/${backendData._id}`}>{<BsFillTrashFill />}</Link>
           </div>
 
@@ -40,7 +40,12 @@ const LogDetail = () => {
           <p>Tickets: {backendData.ticket}</p>
           <p>Walkthrough: {backendData.walkthrough}</p>
           <p>Critical Site Updates: {backendData.critical_updates}</p>
-          <p>Ticket Updates: {backendData.ticket_updates}</p>
+          <p>
+            Ticket Updates:{" "}
+            <div
+              dangerouslySetInnerHTML={{ __html: backendData.ticket_updates }}
+            ></div>
+          </p>
         </div>
       </div>
     </>

@@ -1,6 +1,10 @@
 //imports
 import React, { useState } from "react";
 import Alert from "react-bootstrap/Alert";
+import "../styles/InfoBanner.css";
+import Moment from "moment";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 import {
   AiFillEdit,
@@ -51,44 +55,40 @@ function InfoBanner({ data }) {
 
   return isEditing ? (
     <>
-      <Alert variant="info" className="alert">
+      <Alert className="updates-section">
         <div className="alert-title">
-          <input
-            type="text"
-            name="title"
-            value={title}
-            placeholder="Title"
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
+          <div className="alert-title-1">
+            <label>Title: </label>
+            <input
+              type="text"
+              name="title"
+              value={title}
+              placeholder="Title"
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </div>
           <div className="alert-icons">
             <BiExit className="icon" onClick={handleEdit} />
           </div>
         </div>
-        <textarea
+        <label>Update: </label>
+        <ReactQuill
+          theme="snow"
+          value={update}
+          onChange={setUpdate}
+          className="editor"
+        />
+        {/* <textarea
           name="update"
           placeholder="Update"
           value={update}
           onChange={(e) => setUpdate(e.target.value)}
           required
-        />
-
-        {/* <Editor
-          value={update}
-          onTextChange={(e) => setUpdate(e.htmlValue)}
-          style={{ height: "350px;", background: "white", marginTop: "15px;" }}
         /> */}
-
-        {/* <div className="select">
-          <select name="importance" onChange={(e) => setColor(e.target.value)}>
-            <option value="info">Normal</option>
-            <option value="warning">Important</option>
-            <option value="danger">Critical</option>
-          </select>
-        </div> */}
         <button
           type="submit"
-          className="btn btn-secondary submitUpdate"
+          className="updateSubmitBtn"
           onClick={handleUpdate}
         >
           Create Update
@@ -97,20 +97,18 @@ function InfoBanner({ data }) {
     </>
   ) : (
     <>
-      <Alert variant="info" className="alert">
-        <div className="alert-title">
-          <h4>{data[0].title}</h4>
+      <Alert className="updates-section">
+        <div className="updates-section-title">
+          <h4>
+            Update - {Moment(data.date).format("MM-DD-YYYY")} | {data[0].title}
+          </h4>
           <div className="alert-icons">
             <AiOutlinePlus className="icon" onClick={handleEdit} />
             {/* <AiFillEdit className="icon" /> */}
-            {openAlert ? (
-              <AiOutlineArrowUp className="icon" onClick={handleClick} />
-            ) : (
-              <AiOutlineArrowDown className="icon" onClick={handleClick} />
-            )}
           </div>
         </div>
-        <p className={openAlert ? "show" : "no-show"}>{data[0].update}</p>
+        <div dangerouslySetInnerHTML={{ __html: data[0].update }}></div>
+        {/* <p>{data[0].update}</p> */}
       </Alert>
     </>
   );

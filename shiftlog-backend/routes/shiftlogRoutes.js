@@ -5,11 +5,15 @@ const {
   updateShiftLog,
   deleteShiftLog,
   getShiftLog,
+  getAllShiftLogs,
 } = require("../controllers/shiftlogController");
 const router = express.Router();
 
-// Get all ShiftLogs
+// Get edited ShiftLogs
 router.get("/", getShiftLogs);
+
+//Get all Shiftlogs no edits
+router.get("/alllogs", getAllShiftLogs);
 
 // Get Shiftlog by ID
 router.get("/:id", getShiftLog);

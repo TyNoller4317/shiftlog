@@ -52,4 +52,21 @@ const editUpdates = AsyncHandler(async (req, res) => {
   res.status(200).json(editedUpdate);
 });
 
-module.exports = { getUpdates, createUpdates, editUpdates };
+//@description Delete a Shift Log
+//@route DELETE /api/shiftlog
+//@access public
+const deleteUpdates = AsyncHandler(async (req, res) => {
+  const update = await Update.findById(req.params.id);
+
+  console.log(update);
+
+  if (!update) {
+    res.status(404);
+    throw new Error("Shift not found");
+  }
+
+  await Update.deleteOne({ _id: req.params.id });
+  res.status(200).json(update);
+});
+
+module.exports = { getUpdates, createUpdates, editUpdates, deleteUpdates };

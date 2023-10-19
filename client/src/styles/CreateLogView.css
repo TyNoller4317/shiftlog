@@ -40,14 +40,14 @@ textarea {
     border-radius: 5px;
     font-size: 16px;
     resize: none;
-    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 .createForm input{
     height: 45px;
     width: 500px;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-bottom: 15px;
     padding-left: 10px;
     border: 1px solid #eee;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

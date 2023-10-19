@@ -4,17 +4,17 @@ import Moment from "moment";
 import { Link } from "react-router-dom";
 
 function ShiftViewTable({ tableData }) {
-  return (
+  return tableData ? (
     <>
       <Table aria-label="basic table">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Tickets</th>
-            <th>Walkthrough</th>
-            <th>Critical Site Updates</th>
-            <th>Ticket Updates</th>
+            <th style={{ width: "8%" }}>Date</th>
+            <th style={{ width: "10%" }}>Name</th>
+            <th style={{ width: "10%" }}>Tickets</th>
+            <th style={{ width: "10%" }}>Walkthrough</th>
+            <th style={{ width: "12%" }}>Critical Site Updates</th>
+            <th style={{ width: "50%" }}>Ticket Updates</th>
           </tr>
         </thead>
 
@@ -30,12 +30,16 @@ function ShiftViewTable({ tableData }) {
               <td>{shift.ticket}</td>
               <td>{shift.walkthrough}</td>
               <td>{shift.critical_updates}...</td>
-              <td>{shift.ticket_updates}...</td>
+              <td
+                dangerouslySetInnerHTML={{ __html: shift.ticket_updates }}
+              ></td>
             </tr>
           ))}
         </tbody>
       </Table>
     </>
+  ) : (
+    <h1>Loading...</h1>
   );
 }
 

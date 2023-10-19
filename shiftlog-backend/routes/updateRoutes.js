@@ -4,6 +4,7 @@ const {
   getUpdates,
   createUpdates,
   editUpdates,
+  deleteUpdates,
 } = require("../controllers/updatesController");
 
 //Get Updates
@@ -16,6 +17,6 @@ router.post("/", createUpdates);
 router.put("/:id", editUpdates);
 
 //Delete Update
-router.delete("/:id");
+router.delete("/:id", deleteUpdates);
 
 module.exports = router;

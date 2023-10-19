@@ -4,11 +4,28 @@ import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 
 const Navbar = () => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const date = new Date().getMonth();
+  const currentMonth = months[date];
+
   return (
     <>
       <div className="nav-container">
         <div className="logo">
-          <Link to="/">Shiftlog | Den3</Link>
+          <Link to="/">Shiftlogs | Den3 </Link>
         </div>
         <div className="add-log">
           <Dropdown>
@@ -19,7 +36,10 @@ const Navbar = () => {
                 {/* <CreateLogModal /> */}
               </Dropdown.Item>
               <Dropdown.Item>
-                <Link to="/updates">Updates</Link>
+                <Link to="/updates">Recent Updates</Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link to="/alllogs">Previous ShiftLogs</Link>
               </Dropdown.Item>
               {/* <Dropdown.Divider />
               <Dropdown.Item>

@@ -3,6 +3,8 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import "../styles/CreateLogView.css";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 // import { useAuthContext } from "../hooks/useAuthContext";
 
 const UpdateLogView = () => {
@@ -98,6 +100,7 @@ const UpdateLogView = () => {
             placeholder="Alarms"
             required
           />
+
           <textarea
             type="text"
             name="ticket_updates"
@@ -106,13 +109,6 @@ const UpdateLogView = () => {
               setEndData({ ...endData, ticket_updates: e.target.value })
             }
             placeholder="Notes"
-            required
-          />
-          <input
-            type="date"
-            name="date"
-            value={endData.date}
-            onChange={(e) => setEndData({ ...endData, date: e.target.value })}
             required
           />
           <input type="submit" value="Update" className="btn-submit" />
