@@ -100,7 +100,8 @@ function InfoBanner({ data }) {
       <Alert className="updates-section">
         <div className="updates-section-title">
           <h4>
-            Update - {Moment(data.date).format("MM-DD-YYYY")} | {data[0].title}
+            Update - {Moment(data[0].date).format("MM-DD-YYYY")} |{" "}
+            {data[0].title}
           </h4>
           <div className="alert-icons">
             <AiOutlinePlus className="icon" onClick={handleEdit} />
