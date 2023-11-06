@@ -7,12 +7,15 @@ const DeleteLog = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://shiftlog-backend.onrender.com/api/shiftlog/${logId.id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://shiftlog-backend.onrender.com/api/shiftlog/api/shiftlog/${logId.id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => {
         if (response.status === 200) {
           console.log("Shift Deleted");

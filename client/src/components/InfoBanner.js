@@ -41,17 +41,15 @@ function InfoBanner({ data }) {
     await create_update(title, update);
   };
 
-  const handleEditingUpdate = () => {
-    fetch(`https://shiftlog-backend.onrender.com/api/updates/${updateId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updateData),
-    });
-  };
-
-  console.log(updateData);
+  // const handleEditingUpdate = () => {
+  //   fetch(`/api/updates/${updateId}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(updateData),
+  //   });
+  // };
 
   return isEditing ? (
     <>
@@ -100,15 +98,20 @@ function InfoBanner({ data }) {
       <Alert className="updates-section">
         <div className="updates-section-title">
           <h4>
-            Update - {Moment(data[0].date).format("MM-DD-YYYY")} |{" "}
-            {data[0].title}
+            Update -{" "}
+            {data.length > 0 ? Moment(data[0].date).format("MM-DD-YYYY") : " "}
+            {data.length > 0 ? data[0].title : " "}
           </h4>
           <div className="alert-icons">
             <AiOutlinePlus className="icon" onClick={handleEdit} />
             {/* <AiFillEdit className="icon" /> */}
           </div>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: data[0].update }}></div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data.length > 0 ? data[0].update : " ",
+          }}
+        ></div>
         {/* <p>{data[0].update}</p> */}
       </Alert>
     </>

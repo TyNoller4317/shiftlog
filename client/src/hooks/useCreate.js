@@ -18,7 +18,7 @@ export const useCreate = () => {
 
     //production https://shiftlog-backend.onrender.com/api/shiftlog
     const response = await fetch(
-      "https://shiftlog-backend.onrender.com/api/shiftlog",
+      "https://shiftlog-backend.onrender.com/api/shiftlog/api/shiftlog",
       {
         method: "POST",
         headers: {
