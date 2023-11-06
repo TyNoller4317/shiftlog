@@ -7,15 +7,12 @@ const DeleteUpdate = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(
-      `https://shiftlog-backend.onrender.com/api/shiftlog/api/updates/${logId.id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    fetch(`https://shiftlog-backend.onrender.com/api/updates/${logId.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => {
         if (response.status === 200) {
           console.log("Update Deleted");
