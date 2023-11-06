@@ -23,7 +23,7 @@ function ShiftViewTable({ tableData }) {
             <tr key={i}>
               <td>
                 <Link to={`/${shift._id}`}>
-                  {Moment(shift.date).format("MM DD YYYY")}
+                  {Moment(shift.date).format("MM DD YYYY")} |
                 </Link>
               </td>
               <td>{shift.log_name}</td>
