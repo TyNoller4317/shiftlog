@@ -7,7 +7,7 @@ const DeleteUpdate = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`/api/updates/${logId.id}`, {
+    fetch(`https://shiftlog-backend.onrender.com/api/updates/${logId.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

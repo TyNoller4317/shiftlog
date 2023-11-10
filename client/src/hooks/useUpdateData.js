@@ -5,7 +5,7 @@ export const useUpdateData = () => {
 
   //get updates
   useEffect(() => {
-    fetch("/api/updates", {
+    fetch("https://shiftlog-backend.onrender.com/api/updates", {
       headers: {},
     })
       .then((response) => response.json())

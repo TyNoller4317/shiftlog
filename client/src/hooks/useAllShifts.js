@@ -4,7 +4,7 @@ export const useAllShifts = () => {
   const [shiftData, setShiftData] = useState([{}]);
 
   useEffect(() => {
-    fetch("/api/shiftlog/alllogs", {
+    fetch("https://shiftlog-backend.onrender.com/api/shiftlog/alllogs", {
       headers: {},
     })
       .then((response) => response.json())
