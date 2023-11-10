@@ -74,12 +74,11 @@ const CreateLogView = () => {
             required
           />
           <label>Critical Site Updates: </label>
-          <input
-            type="text"
-            name="critical_updates"
+          <ReactQuill
+            theme="snow"
             value={critical_updates}
-            onChange={(e) => setCriticalUpdates(e.target.value)}
-            required
+            onChange={setCriticalUpdates}
+            className="editor"
           />
           <label>Ticket Updates: </label>
           <ReactQuill

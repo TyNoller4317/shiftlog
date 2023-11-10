@@ -2,54 +2,56 @@ import React from "react";
 import Table from "@mui/joy/Table";
 import Moment from "moment";
 import { Link } from "react-router-dom";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 function ShiftViewTable({ tableData }) {
   return tableData.length > 0 ? (
     <>
       <Table aria-label="basic table">
-        <thead>
-          <tr>
-            <th style={{ width: "8%" }}>Date</th>
-            <th style={{ width: "10%" }}>Name</th>
-            <th style={{ width: "10%" }}>Tickets</th>
-            <th style={{ width: "10%" }}>Walkthrough</th>
-            <th style={{ width: "12%" }}>Critical Site Updates</th>
-            <th style={{ width: "50%" }}>Ticket Updates</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {tableData.map((shift, i) => (
-            <tr key={i}>
-              <td>
+        <TableHead>
+          <TableRow>
+            <TableCell sx={{ width: "10%" }}>Date</TableCell>
+            <TableCell sx={{ width: "10%" }}>Name</TableCell>
+            {/* <TableCell>Tickets</TableCell>
+            <TableCell>Walkthrough</TableCell> */}
+            <TableCell sx={{ width: "30%" }}>Critical Site Updates</TableCell>
+            <TableCell sx={{ width: "50%" }}>Ticket Updates</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {tableData.map((shift, index) => (
+            <TableRow key={index}>
+              <TableCell>
+                {" "}
                 <Link to={`/${shift._id}`}>
-                  {Moment(shift.date).format("MM DD YYYY")} |
+                  {Moment(shift.date).format("MM-DD-YYYY")}
                 </Link>
-              </td>
-              <td>{shift.log_name}</td>
-              <td>{shift.ticket}</td>
-              <td>{shift.walkthrough}</td>
-              <td>{shift.critical_updates}...</td>
-              <td
-                dangerouslySetInnerHTML={{ __html: shift.ticket_updates }}
-              ></td>
-            </tr>
+              </TableCell>
+              <TableCell>{shift.log_name}</TableCell>
+              <TableCell>{shift.critical_updates}</TableCell>
+              <TableCell>
+                <div
+                  dangerouslySetInnerHTML={{ __html: shift.ticket_updates }}
+                />
+              </TableCell>
+            </TableRow>
           ))}
-        </tbody>
+        </TableBody>
       </Table>
     </>
   ) : (
     <Table aria-label="basic table">
-      <thead>
-        <tr>
-          <th style={{ width: "8%" }}>Date</th>
-          <th style={{ width: "10%" }}>Name</th>
-          <th style={{ width: "10%" }}>Tickets</th>
-          <th style={{ width: "10%" }}>Walkthrough</th>
-          <th style={{ width: "12%" }}>Critical Site Updates</th>
-          <th style={{ width: "50%" }}>Ticket Updates</th>
-        </tr>
-      </thead>
+      <TableHead>
+        <TableRow>
+          <TableCell sx={{ width: "10%" }}>Date</TableCell>
+          <TableCell sx={{ width: "10%" }}>Name</TableCell>
+          <TableCell sx={{ width: "30%" }}>Critical Site Updates</TableCell>
+          <TableCell sx={{ width: "50%" }}>Ticket Updates</TableCell>
+        </TableRow>
+      </TableHead>
     </Table>
   );
 }

@@ -10,6 +10,7 @@ import UpdatesView from "./pages/UpdatesView";
 import AllShifts from "./pages/AllShifts";
 import DeleteUpdate from "./pages/deleteUpdate";
 import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/update/:id" element={<UpdateLogView />} />
             <Route path="/updates" element={<UpdatesView />} />
             <Route path="/updates/delete/:id" element={<DeleteUpdate />} />
+            <Route path="/admin" element={<Login />} />
           </Routes>
         </BrowserRouter>
       </PrimeReactProvider>

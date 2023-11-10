@@ -34,12 +34,11 @@
 
 textarea {
     width: 100%;
-    height: 150px;
+    height: 100px;
     box-sizing: border-box;
     border: 1px solid #eee;
     border-radius: 5px;
     font-size: 16px;
-    resize: none;
     margin-bottom: 15px;
 }
 
@@ -57,3 +56,4 @@ textarea {
     background-color: var(--raisin-black);
     color: white;
 }
+

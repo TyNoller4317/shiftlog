@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/auth/useLogout";
 
 const Navbar = () => {
   const months = [
@@ -20,6 +22,13 @@ const Navbar = () => {
   ];
   const date = new Date().getMonth();
   const currentMonth = months[date];
+  const { user } = useAuthContext();
+  const { logout } = useLogout();
+
+  const handleLogout = async () => {
+    await logout();
+    window.location.reload();
+  };
 
   return (
     <>
@@ -41,10 +50,22 @@ const Navbar = () => {
               <Dropdown.Item>
                 <Link to="/alllogs">Previous ShiftLogs</Link>
               </Dropdown.Item>
-              {/* <Dropdown.Divider />
-              <Dropdown.Item>
-                <Link onClick={handleClick}>Logout</Link>
-              </Dropdown.Item> */}
+              <Dropdown.Divider />
+              {user ? (
+                <></>
+              ) : (
+                <Dropdown.Item>
+                  <Link to="/admin">Admin Login</Link>
+                </Dropdown.Item>
+              )}
+
+              {user ? (
+                <Dropdown.Item>
+                  <Link onClick={handleLogout}>Logout</Link>
+                </Dropdown.Item>
+              ) : (
+                <></>
+              )}
             </Dropdown.Menu>
           </Dropdown>
         </div>

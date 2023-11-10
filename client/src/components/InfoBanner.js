@@ -5,6 +5,8 @@ import "../styles/InfoBanner.css";
 import Moment from "moment";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { Box, Grid } from "@mui/material";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 import {
   AiFillEdit,
@@ -28,6 +30,7 @@ function InfoBanner({ data }) {
   const updateId = JSON.parse(localStorage.getItem("update"));
   const updateData = useUpdateData();
   const [color, setColor] = useState("");
+  const { user } = useAuthContext();
 
   const handleClick = () => {
     setOpenAlert(!openAlert);
@@ -67,7 +70,7 @@ function InfoBanner({ data }) {
             />
           </div>
           <div className="alert-icons">
-            <BiExit className="icon" onClick={handleEdit} />
+            <BiExit className="icon-main" onClick={handleEdit} />
           </div>
         </div>
         <label>Update: </label>
@@ -95,25 +98,34 @@ function InfoBanner({ data }) {
     </>
   ) : (
     <>
-      <Alert className="updates-section">
-        <div className="updates-section-title">
-          <h4>
-            Update -{" "}
-            {data.length > 0 ? Moment(data[0].date).format("MM-DD-YYYY") : " "}
-            {data.length > 0 ? data[0].title : " "}
-          </h4>
-          <div className="alert-icons">
-            <AiOutlinePlus className="icon" onClick={handleEdit} />
-            {/* <AiFillEdit className="icon" /> */}
-          </div>
-        </div>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: data.length > 0 ? data[0].update : " ",
-          }}
-        ></div>
-        {/* <p>{data[0].update}</p> */}
-      </Alert>
+      <Box sx={{ padding: 3, backgroundColor: "#10234e", color: "white" }}>
+        <Grid container>
+          <Grid item xs={6}>
+            <h4>
+              Update -{" "}
+              {data.length > 0
+                ? Moment(data[0].date).format("MM-DD-YYYY")
+                : " "}{" "}
+              - {data.length > 0 ? data[0].title : " "}
+            </h4>
+          </Grid>
+          <Grid item xs={6} textAlign={"right"}>
+            <div className="alert-icons">
+              <AiOutlinePlus
+                className={user ? "icon-main" : "no-show"}
+                onClick={handleEdit}
+              />{" "}
+            </div>
+          </Grid>
+          <Grid item xs={12}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.length > 0 ? data[0].update : " ",
+              }}
+            ></div>
+          </Grid>
+        </Grid>
+      </Box>
     </>
   );
 }

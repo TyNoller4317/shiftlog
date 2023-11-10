@@ -17,7 +17,6 @@ const userSchema = mongoose.Schema(
     },
     site: {
       type: String,
-      required: [true, "Please select a site!"],
     },
   },
   {
