@@ -49,7 +49,14 @@ const LogDetail = () => {
           <Grid item xs={12} sx={{ padding: 2 }}>
             <p>Tickets: {backendData.ticket}</p>
             <p>Walkthrough: {backendData.walkthrough}</p>
-            <p>Critical Site Updates: {backendData.critical_updates}</p>
+            <p>
+              Critical Site Updates:{" "}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: backendData.critical_updates,
+                }}
+              ></div>
+            </p>
             <p>
               Ticket Updates:
               <div

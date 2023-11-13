@@ -31,7 +31,11 @@ function ShiftViewTable({ tableData }) {
                 </Link>
               </TableCell>
               <TableCell>{shift.log_name}</TableCell>
-              <TableCell>{shift.critical_updates}</TableCell>
+              <TableCell>
+                <div
+                  dangerouslySetInnerHTML={{ __html: shift.critical_updates }}
+                />
+              </TableCell>
               <TableCell>
                 <div
                   dangerouslySetInnerHTML={{ __html: shift.ticket_updates }}
