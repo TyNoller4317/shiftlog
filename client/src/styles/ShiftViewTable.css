@@ -1,0 +1,8 @@
+.tableCell {
+}
+
+@media screen and (max-width: 500px){
+    .tableCell {
+        width: 100%;
+    }
+}

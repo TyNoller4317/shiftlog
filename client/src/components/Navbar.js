@@ -58,13 +58,6 @@ const Navbar = () => {
                   <Link to="/admin">Admin Login</Link>
                 </Dropdown.Item>
               )}
-              {/* {user ? (
-                <Dropdown.Item>
-                  <Link to="/admin/metrics">Metrics</Link>
-                </Dropdown.Item>
-              ) : (
-                <></>
-              )} */}
               {user ? (
                 <Dropdown.Item>
                   <Link onClick={handleLogout}>Logout</Link>

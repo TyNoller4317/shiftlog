@@ -12,10 +12,9 @@ import DeleteUpdate from "./pages/deleteUpdate";
 import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
 import { useLogout } from "./hooks/auth/useLogout";
 import Login from "./pages/Login";
-import Metrics from "./pages/Metrics";
 
 function App() {
-  const logout = useLogout();
+  // const { logout } = useLogout();
 
   return (
     <>
@@ -31,7 +30,6 @@ function App() {
             <Route path="/updates" element={<UpdatesView />} />
             <Route path="/updates/delete/:id" element={<DeleteUpdate />} />
             <Route path="/admin" element={<Login />} />
-            <Route path="/admin/metrics" element={<Metrics />} />
           </Routes>
         </BrowserRouter>
       </PrimeReactProvider>

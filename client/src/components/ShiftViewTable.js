@@ -6,6 +6,7 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import "../styles/ShiftViewTable.css";
 
 function ShiftViewTable({ tableData }) {
   return tableData.length > 0 ? (
@@ -13,12 +14,18 @@ function ShiftViewTable({ tableData }) {
       <Table aria-label="basic table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ width: "10%" }}>Date</TableCell>
-            <TableCell sx={{ width: "10%" }}>Name</TableCell>
-            {/* <TableCell>Tickets</TableCell>
-            <TableCell>Walkthrough</TableCell> */}
-            <TableCell sx={{ width: "30%" }}>Critical Site Updates</TableCell>
-            <TableCell sx={{ width: "50%" }}>Ticket Updates</TableCell>
+            <TableCell sx={{ width: "10%" }} className="tableCell">
+              Date
+            </TableCell>
+            <TableCell sx={{ width: "10%" }} className="tableCell">
+              Name
+            </TableCell>
+            <TableCell sx={{ width: "30%" }} className="tableCell">
+              Critical Site Updates
+            </TableCell>
+            <TableCell sx={{ width: "50%" }} className="tableCell">
+              Ticket Updates
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
