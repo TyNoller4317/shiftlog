@@ -19,7 +19,14 @@ const getShiftLogs = AsyncHandler(async (req, res) => {
   });
 
   for (let i = 0; i < shift.length; i++) {
-    shift[i].ticket_updates = shift[i].ticket_updates.slice(0, 150);
+    if (shift[i].ticket_updates.length >= 100) {
+      shift[i].ticket_updates = shift[i].ticket_updates.slice(0, 100) + "...";
+    }
+
+    if (shift[i].critical_updates.length >= 100) {
+      shift[i].critical_updates =
+        shift[i].critical_updates.slice(0, 100) + "...";
+    }
   }
 
   res.status(200).json(shift);

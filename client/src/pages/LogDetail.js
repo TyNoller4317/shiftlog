@@ -42,7 +42,7 @@ const LogDetail = () => {
           </Grid>
           <Grid item xs={12} sx={{ padding: 2 }}>
             <h1>
-              {Moment(backendData.date).format("MM DD YYYY")} |{" "}
+              {Moment(backendData.date).format("MM-DD-YYYY")} |{" "}
               {backendData.log_name}
             </h1>
           </Grid>
