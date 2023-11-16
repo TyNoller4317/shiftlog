@@ -8,7 +8,6 @@ const cors = require("cors");
 
 const corsOptions = {
   origin: "https://shiftlog-frontend.onrender.com",
-  origin: "https://www.proximalogs.app",
 };
 
 connectDb();
