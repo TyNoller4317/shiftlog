@@ -31,6 +31,7 @@ function InfoBanner({ data }) {
   const updateData = useUpdateData();
   const [color, setColor] = useState("");
   const { user } = useAuthContext();
+  const [showT, setShowT] = useState(false);
 
   const handleClick = () => {
     setOpenAlert(!openAlert);
@@ -42,6 +43,10 @@ function InfoBanner({ data }) {
 
   const handleUpdate = async () => {
     await create_update(title, update);
+  };
+
+  const showText = () => {
+    setShowT(!showT);
   };
 
   // const handleEditingUpdate = () => {
@@ -100,7 +105,11 @@ function InfoBanner({ data }) {
     <>
       <Box sx={{ padding: 3, backgroundColor: "#10234e", color: "white" }}>
         <Grid container>
-          <Grid item xs={6}>
+          <Grid
+            item
+            xs={6}
+            sx={{ display: "flex", justifyContent: "space-between" }}
+          >
             <h4>
               Update -{" "}
               {data.length > 0
@@ -115,6 +124,7 @@ function InfoBanner({ data }) {
                 className={user ? "icon-main" : "no-show"}
                 onClick={handleEdit}
               />{" "}
+              <AiOutlineArrowDown onClick={showText} className="icons" />
             </div>
           </Grid>
           <Grid item xs={12}>
@@ -122,6 +132,7 @@ function InfoBanner({ data }) {
               dangerouslySetInnerHTML={{
                 __html: data.length > 0 ? data[0].update : " ",
               }}
+              className={showT ? "" : "no-show"}
             ></div>
           </Grid>
         </Grid>
