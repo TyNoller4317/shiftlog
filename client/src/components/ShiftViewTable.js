@@ -7,15 +7,23 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import "../styles/ShiftViewTable.css";
+import useCheckMobileScreen from "../hooks/useCheckMobileScreen";
 
 function ShiftViewTable({ tableData }) {
+  const checkMobile = useCheckMobileScreen();
+  console.log(checkMobile);
+
   return tableData.length > 0 ? (
     <>
       <Table aria-label="basic table">
         <TableHead>
           <TableRow>
             <TableCell className="tableCell">Date</TableCell>
-            <TableCell className="tableCell">Name</TableCell>
+            {checkMobile ? (
+              <></>
+            ) : (
+              <TableCell className="tableCell">Name</TableCell>
+            )}
             <TableCell className="tableCell">Critical Site Updates</TableCell>
             <TableCell className="tableCell">Ticket Updates</TableCell>
           </TableRow>
@@ -29,7 +37,7 @@ function ShiftViewTable({ tableData }) {
                   {Moment(shift.date).format("MM-DD-YYYY")}
                 </Link>
               </TableCell>
-              <TableCell>{shift.log_name}</TableCell>
+              {checkMobile ? <></> : <TableCell>{shift.log_name}</TableCell>}
               <TableCell>
                 <div
                   dangerouslySetInnerHTML={{
