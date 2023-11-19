@@ -18,16 +18,16 @@ const getShiftLogs = AsyncHandler(async (req, res) => {
     date: -1,
   });
 
-  for (let i = 0; i < shift.length; i++) {
-    if (shift[i].ticket_updates.length >= 100) {
-      shift[i].ticket_updates = shift[i].ticket_updates.slice(0, 100) + "...";
-    }
+  // for (let i = 0; i < shift.length; i++) {
+  //   if (shift[i].ticket_updates.length >= 100) {
+  //     shift[i].ticket_updates = shift[i].ticket_updates.slice(0, 100) + "...";
+  //   }
 
-    if (shift[i].critical_updates.length >= 100) {
-      shift[i].critical_updates =
-        shift[i].critical_updates.slice(0, 100) + "...";
-    }
-  }
+  //   if (shift[i].critical_updates.length >= 100) {
+  //     shift[i].critical_updates =
+  //       shift[i].critical_updates.slice(0, 100) + "...";
+  //   }
+  // }
 
   res.status(200).json(shift);
 });
@@ -39,7 +39,14 @@ const getAllShiftLogs = AsyncHandler(async (req, res) => {
   const shift = await Shift.find().sort({ date: -1 });
 
   for (let i = 0; i < shift.length; i++) {
-    shift[i].ticket_updates = shift[i].ticket_updates.slice(0, 200);
+    if (shift[i].ticket_updates.length >= 100) {
+      shift[i].ticket_updates = shift[i].ticket_updates.slice(0, 100) + "...";
+    }
+
+    if (shift[i].critical_updates.length >= 100) {
+      shift[i].critical_updates =
+        shift[i].critical_updates.slice(0, 100) + "...";
+    }
   }
 
   res.status(200).json(shift);

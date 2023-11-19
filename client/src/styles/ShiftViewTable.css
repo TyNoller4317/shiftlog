@@ -1,8 +1,33 @@
-.tableCell {
+.tableCell:nth-child(1) {
+    width: 10%;
+}
+
+.tableCell:nth-child(2) {
+    width: 10%;
+}
+
+.tableCell:nth-child(3) {
+    width: 40%;
+}
+
+.tableCell:nth-child(4) {
+    width: 40%;
 }
 
 @media screen and (max-width: 500px){
-    .tableCell {
+    .tableCell:nth-child(1) {
+        width: 100%;
+    }
+    
+    .tableCell:nth-child(2) {
+     width: 100%;
+    }
+    
+    .tableCell:nth-child(3) {
+        width: 100%;
+    }
+    
+    .tableCell:nth-child(4) {
         width: 100%;
     }
 }

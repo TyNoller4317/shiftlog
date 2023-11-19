@@ -14,18 +14,10 @@ function ShiftViewTable({ tableData }) {
       <Table aria-label="basic table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ width: "10%" }} className="tableCell">
-              Date
-            </TableCell>
-            <TableCell sx={{ width: "10%" }} className="tableCell">
-              Name
-            </TableCell>
-            <TableCell sx={{ width: "30%" }} className="tableCell">
-              Critical Site Updates
-            </TableCell>
-            <TableCell sx={{ width: "50%" }} className="tableCell">
-              Ticket Updates
-            </TableCell>
+            <TableCell className="tableCell">Date</TableCell>
+            <TableCell className="tableCell">Name</TableCell>
+            <TableCell className="tableCell">Critical Site Updates</TableCell>
+            <TableCell className="tableCell">Ticket Updates</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
