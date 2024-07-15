@@ -17,18 +17,10 @@ const shiftSchema = mongoose.Schema(
     },
     critical_updates: {
       type: String,
-<<<<<<< HEAD
-=======
-      default: "N/A",
->>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
       required: [true, "Please enter an alarm!"],
     },
     ticket_updates: {
       type: String,
-<<<<<<< HEAD
-=======
-      default: "N/A",
->>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
     },
     log_name: {
       type: String,
