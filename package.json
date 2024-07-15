@@ -11,12 +11,9 @@
   },
   "author": "",
   "license": "ISC",
-<<<<<<< HEAD
-  "description": ""
-=======
+  "description": "",
   "description": "",
   "dependencies": {
     "nodemon": "^3.1.4"
   }
->>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
 }
