@@ -1,14 +1,6 @@
 const Shift = require("../models/shiftModel");
 const AsyncHandler = require("express-async-handler");
 
-<<<<<<< HEAD
-=======
-//@description search a shiftlog by text
-//@route GET /api/shiftlog/:text
-//@access public
-const searchShiftlog = AsyncHandler(async (req, res) => {});
-
->>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
 //@description Get all shiftlogs but edited
 //@route GET /api/shiftlog
 //@access public
