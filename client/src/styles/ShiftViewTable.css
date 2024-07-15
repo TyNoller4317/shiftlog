@@ -31,3 +31,12 @@
     width: 100%;
   }
 }
+
+.shiftlink {
+  color: black;
+  text-decoration: none;
+}
+
+.shiftlink:hover {
+  color: #6b6b6b;
+}

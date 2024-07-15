@@ -12,6 +12,7 @@ import DeleteUpdate from "./pages/deleteUpdate";
 import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
 import { useLogout } from "./hooks/auth/useLogout";
 import Login from "./pages/Login";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   // const { logout } = useLogout();
@@ -30,6 +31,7 @@ function App() {
             <Route path="/updates" element={<UpdatesView />} />
             <Route path="/updates/delete/:id" element={<DeleteUpdate />} />
             <Route path="/admin" element={<Login />} />
+            <Route path="/adminDashboard" element={<AdminDashboard />} />
           </Routes>
         </BrowserRouter>
       </PrimeReactProvider>

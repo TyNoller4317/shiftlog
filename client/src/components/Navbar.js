@@ -60,6 +60,13 @@ const Navbar = () => {
               )}
               {user ? (
                 <Dropdown.Item>
+                  <Link to="adminDashboard">Admin Dashboard</Link>
+                </Dropdown.Item>
+              ) : (
+                <></>
+              )}
+              {user ? (
+                <Dropdown.Item>
                   <Link onClick={handleLogout}>Logout</Link>
                 </Dropdown.Item>
               ) : (

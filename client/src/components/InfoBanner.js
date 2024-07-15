@@ -59,51 +59,9 @@ function InfoBanner({ data }) {
   //   });
   // };
 
-  return isEditing ? (
+  return (
     <>
-      <Alert className="updates-section">
-        <div className="alert-title">
-          <div className="alert-title-1">
-            <label>Title: </label>
-            <input
-              type="text"
-              name="title"
-              value={title}
-              placeholder="Title"
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
-          </div>
-          <div className="alert-icons">
-            <BiExit className="icon-main" onClick={handleEdit} />
-          </div>
-        </div>
-        <label>Update: </label>
-        <ReactQuill
-          theme="snow"
-          value={update}
-          onChange={setUpdate}
-          className="editor"
-        />
-        {/* <textarea
-          name="update"
-          placeholder="Update"
-          value={update}
-          onChange={(e) => setUpdate(e.target.value)}
-          required
-        /> */}
-        <button
-          type="submit"
-          className="updateSubmitBtn"
-          onClick={handleUpdate}
-        >
-          Create Update
-        </button>
-      </Alert>
-    </>
-  ) : (
-    <>
-      <Box sx={{ padding: 3, backgroundColor: "#10234e", color: "white" }}>
+      <Box sx={{ padding: 3, backgroundColor: "#2e2c2f", color: "white" }}>
         <Grid container>
           <Grid
             item
@@ -120,10 +78,6 @@ function InfoBanner({ data }) {
           </Grid>
           <Grid item xs={6} textAlign={"right"}>
             <div className="alert-icons">
-              <AiOutlinePlus
-                className={user ? "icon-main" : "no-show"}
-                onClick={handleEdit}
-              />{" "}
               <AiOutlineArrowDown onClick={showText} className="icons" />
             </div>
           </Grid>
