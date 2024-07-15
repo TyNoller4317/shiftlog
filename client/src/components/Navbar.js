@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/auth/useLogout";
-<<<<<<< HEAD
-=======
-import { FaSearch } from "react-icons/fa";
->>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
 
 const Navbar = () => {
   const months = [
@@ -40,10 +36,6 @@ const Navbar = () => {
         <div className="logo">
           <Link to="/">Shiftlogs | Den3 </Link>
         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
         <div className="add-log">
           <Dropdown>
             <Dropdown.Toggle variant="" id="dropdown-basic"></Dropdown.Toggle>
@@ -68,16 +60,6 @@ const Navbar = () => {
               )}
               {user ? (
                 <Dropdown.Item>
-<<<<<<< HEAD
-=======
-                  <Link to="adminDashboard">Admin Dashboard</Link>
-                </Dropdown.Item>
-              ) : (
-                <></>
-              )}
-              {user ? (
-                <Dropdown.Item>
->>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
                   <Link onClick={handleLogout}>Logout</Link>
                 </Dropdown.Item>
               ) : (

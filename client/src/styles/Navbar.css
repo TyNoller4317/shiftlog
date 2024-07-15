@@ -1,65 +1,41 @@
 :root {
-    --raisin-black: #2e2c2f;
-    --paynes-gray: #475b63;
-    --cambridge-blue: #729b79;
-    --ash-gray: #BACDB0;
-    --lavendar-blush: #f3e8ee;
+  --raisin-black: #2e2c2f;
+  --paynes-gray: #475b63;
+  --cambridge-blue: #729b79;
+  --ash-gray: #bacdb0;
+  --lavendar-blush: #f3e8ee;
 }
 
 .nav-container {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
 }
 
 .nav-container .logo {
-    font-size: 16px;
-    margin-left: 40px;
+  font-size: 16px;
+  margin-left: 40px;
 }
 
 .logo a {
-    color: var(--raisin-black);
-    text-decoration: none;
+  color: var(--raisin-black);
+  text-decoration: none;
 }
 
 .add-log {
-    display: flex;
-    padding-right: 40px;
+  display: flex;
+  padding-right: 40px;
 }
 
-.nav-container .add-log a{
-    text-decoration: none;
-    color: var(--raisin-black);
+.nav-container .add-log a {
+  text-decoration: none;
+  color: var(--raisin-black);
 }
 
 .nav-container .add-log .logout-btn {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
-<<<<<<< HEAD
-=======
-
-.searchBar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 100px;
-}
-
-.search {
-    margin: 0;
-}
-
-.searchBtn {
-    border: none; 
-    background: white;
-    border-radius: 5px;
-    color: #202020;
-    padding: 5px;
-    font-size: 20px;
-    margin: 0 15px;
-}
->>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)

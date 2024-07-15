@@ -1,25 +1,24 @@
 .updates-container {
-    width: 100%;
-    padding: 15px 60px;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  padding: 15px 60px;
+  display: flex;
+  flex-direction: column;
 }
 
-
 .update {
-    width: 100%;
-    background-color: white;
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100%;
+  background-color: white;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .update-header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .update-header a {
-    color: var(--raisin-black);
+  color: var(--raisin-black);
 }

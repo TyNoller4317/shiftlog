@@ -1,45 +1,33 @@
 .tableCell:nth-child(1) {
-    width: 10%;
+  width: 10%;
 }
 
 .tableCell:nth-child(2) {
-    width: 10%;
+  width: 10%;
 }
 
 .tableCell:nth-child(3) {
-    width: 40%;
+  width: 40%;
 }
 
 .tableCell:nth-child(4) {
-    width: 40%;
+  width: 40%;
 }
 
-@media screen and (max-width: 500px){
-    .tableCell:nth-child(1) {
-        width: 100%;
-    }
-    
-    .tableCell:nth-child(2) {
-     width: 100%;
-    }
-    
-    .tableCell:nth-child(3) {
-        width: 100%;
-    }
-    
-    .tableCell:nth-child(4) {
-        width: 100%;
-    }
-}
-<<<<<<< HEAD
-=======
+@media screen and (max-width: 500px) {
+  .tableCell:nth-child(1) {
+    width: 100%;
+  }
 
-.details-link {
-    color: black;
-    text-decoration: none;
-}
+  .tableCell:nth-child(2) {
+    width: 100%;
+  }
 
-.details-link:hover {
-    color: #47474777;
+  .tableCell:nth-child(3) {
+    width: 100%;
+  }
+
+  .tableCell:nth-child(4) {
+    width: 100%;
+  }
 }
->>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
