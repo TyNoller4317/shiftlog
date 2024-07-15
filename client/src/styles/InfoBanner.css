@@ -1,5 +1,9 @@
 .updates-section{ 
+<<<<<<< HEAD
     background-color: #10234e;
+=======
+    background-color: #dedede;
+>>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
     color: white;
     border: none;
     border-radius: 0;

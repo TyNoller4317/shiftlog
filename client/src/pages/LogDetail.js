@@ -50,6 +50,7 @@ const LogDetail = () => {
             <p>Tickets: {backendData.ticket}</p>
             <p>Walkthrough: {backendData.walkthrough}</p>
             <p>
+<<<<<<< HEAD
               Critical Site Updates:{" "}
               <div
                 dangerouslySetInnerHTML={{
@@ -62,6 +63,24 @@ const LogDetail = () => {
               <div
                 dangerouslySetInnerHTML={{ __html: backendData.ticket_updates }}
               ></div>
+=======
+              Critical Site Updates:
+              <div
+                className="ql-editor"
+                dangerouslySetInnerHTML={{
+                  __html: backendData.critical_updates,
+                }}
+              />
+            </p>
+            <p>
+              Ticket Updates:{" "}
+              <div
+                className="ql-editor"
+                dangerouslySetInnerHTML={{
+                  __html: backendData.ticket_updates,
+                }}
+              />
+>>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
             </p>
           </Grid>
         </Grid>

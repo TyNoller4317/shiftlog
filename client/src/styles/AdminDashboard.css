@@ -1,0 +1,85 @@
+.metric-container {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.metric-container h1 {
+  margin-bottom: 20px;
+}
+
+.metrics {
+  display: flex;
+  padding: 15px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 0 25px;
+  font-weight: bold;
+}
+
+.adminUpdates {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  height: 350px;
+}
+
+.adminUpdates input {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  margin-top: 20px;
+}
+
+.adminUpdates button {
+  background-color: #2e2c2f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.adminUpdates button:hover,
+button:focus {
+  background-color: #504e52;
+}
+
+.adminUsers {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.userItem {
+  display: flex;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 0 10px 0;
+  position: relative;
+}
+
+.userItem::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  bottom: 0;
+  left: 0;
+}
+
+.userItem p {
+  margin: 0 25px 0 0;
+  font-size: 18px;
+}

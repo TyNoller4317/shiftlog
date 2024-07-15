@@ -12,7 +12,11 @@ export const useSignup = () => {
 
     //prodution https://shiftlog-backend.onrender.com/api/users/register
     const response = await fetch(
+<<<<<<< HEAD
       "https://shiftlog-backend.onrender.com/api/users/register",
+=======
+      "/api/users/register",
+>>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
       {
         method: "POST",
         headers: {

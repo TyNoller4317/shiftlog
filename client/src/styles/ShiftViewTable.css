@@ -31,3 +31,15 @@
         width: 100%;
     }
 }
+<<<<<<< HEAD
+=======
+
+.details-link {
+    color: black;
+    text-decoration: none;
+}
+
+.details-link:hover {
+    color: #47474777;
+}
+>>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)

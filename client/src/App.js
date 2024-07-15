@@ -6,6 +6,10 @@ import CreateLogView from "./pages/CreateLogView";
 import LogDetail from "./pages/LogDetail";
 import DeleteLog from "./pages/deleteLog";
 import UpdateLogView from "./pages/UpdateLogView";
+<<<<<<< HEAD
+=======
+import AdminDashboard from "./pages/AdminDashboard";
+>>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
 import UpdatesView from "./pages/UpdatesView";
 import AllShifts from "./pages/AllShifts";
 import DeleteUpdate from "./pages/deleteUpdate";
@@ -30,6 +34,10 @@ function App() {
             <Route path="/updates" element={<UpdatesView />} />
             <Route path="/updates/delete/:id" element={<DeleteUpdate />} />
             <Route path="/admin" element={<Login />} />
+<<<<<<< HEAD
+=======
+            <Route path="adminDashboard" element={<AdminDashboard />}/>
+>>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
           </Routes>
         </BrowserRouter>
       </PrimeReactProvider>

@@ -1,5 +1,6 @@
 //imports
 import React, { useState } from "react";
+<<<<<<< HEAD
 import Alert from "react-bootstrap/Alert";
 import "../styles/InfoBanner.css";
 import Moment from "moment";
@@ -45,10 +46,23 @@ function InfoBanner({ data }) {
     await create_update(title, update);
   };
 
+=======
+import "../styles/InfoBanner.css";
+import Moment from "moment";
+import "react-quill/dist/quill.snow.css";
+import { Box, Grid } from "@mui/material";
+import { AiOutlineArrowDown } from "react-icons/ai";
+
+//component
+function InfoBanner({ data }) {
+  const [showT, setShowT] = useState(false);
+
+>>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
   const showText = () => {
     setShowT(!showT);
   };
 
+<<<<<<< HEAD
   // const handleEditingUpdate = () => {
   //   fetch(`/api/updates/${updateId}`, {
   //     method: "PUT",
@@ -104,6 +118,11 @@ function InfoBanner({ data }) {
   ) : (
     <>
       <Box sx={{ padding: 3, backgroundColor: "#10234e", color: "white" }}>
+=======
+  return (
+    <>
+      <Box sx={{ padding: 3, backgroundColor: "#252422", color: "white" }}>
+>>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
         <Grid container>
           <Grid
             item
@@ -120,10 +139,13 @@ function InfoBanner({ data }) {
           </Grid>
           <Grid item xs={6} textAlign={"right"}>
             <div className="alert-icons">
+<<<<<<< HEAD
               <AiOutlinePlus
                 className={user ? "icon-main" : "no-show"}
                 onClick={handleEdit}
               />{" "}
+=======
+>>>>>>> 87ffa30 (Updated the design of the shiftlog as well as adding search functionality to the shiftlogs.)
               <AiOutlineArrowDown onClick={showText} className="icons" />
             </div>
           </Grid>
