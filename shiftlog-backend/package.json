@@ -7,6 +7,15 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.1",
+<<<<<<< HEAD
+=======
+    "crypt": "^0.0.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.7.0",
+>>>>>>> 453bf135c58a0294d5bee24666fff07eec801be5
     "nodemon": "^3.0.1"
   },
   "scripts": {
@@ -18,5 +27,11 @@
   "description": "shiftlog-backened",
   "main": "server.js",
   "author": "",
+<<<<<<< HEAD
   "license": "ISC"
+=======
+  "license": "ISC",
+  "license": "ISC",
+  "devDependencies": {}
+>>>>>>> 453bf135c58a0294d5bee24666fff07eec801be5
 }
