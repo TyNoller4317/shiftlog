@@ -1,4 +1,4 @@
-.metric-container {
+.admin-title {
   padding: 15px;
   width: 100%;
   display: flex;
@@ -7,25 +7,6 @@
   flex-direction: column;
   background-color: white;
   border-radius: 10px;
-}
-
-.metric-container h1 {
-  margin-bottom: 20px;
-}
-
-.metrics {
-  display: flex;
-  padding: 15px;
-}
-
-.metric {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin: 0 25px;
-  font-weight: bold;
 }
 
 .adminUpdates {
@@ -55,14 +36,82 @@ button:focus {
   background-color: #504e52;
 }
 
+.todoList {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  height: 350px;
+}
+
+.todoList input {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  margin-top: 20px;
+}
+
+.todoList button {
+  background-color: #2e2c2f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.todoList button:hover,
+button:focus {
+  background-color: #504e52;
+}
+
+.metrics-container {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.metrics-title {
+}
+
+.metrics {
+  display: flex;
+  padding: 15px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 0 25px;
+  font-weight: bold;
+}
+
 .adminUsers {
   background: #fff;
   padding: 25px;
   border-radius: 10px;
 }
+.adminUsersHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.adminUsersHeader button {
+  border: none;
+  border-radius: 5px;
+  background-color: #2e2c2f;
+  color: white;
+  padding: 0 10px;
+}
+
+.adminUsersHeader button:hover {
+  background-color: #504e52;
+}
 
 .userItem {
   display: flex;
+  align-items: center;
   border-radius: 5px;
   padding: 5px;
   margin: 0 0 10px 0;
@@ -82,4 +131,9 @@ button:focus {
 .userItem p {
   margin: 0 25px 0 0;
   font-size: 18px;
+}
+
+.react-icon {
+  cursor: pointer;
+  margin-right: 10px;
 }
