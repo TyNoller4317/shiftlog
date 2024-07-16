@@ -4,10 +4,10 @@ import Navbar from "../components/Navbar";
 import InfoBanner from "../components/InfoBanner";
 import ShiftViewTable from "../components/ShiftViewTable";
 import { useUpdateData } from "../hooks/useUpdateData";
-import { useShiftData } from "../hooks/useShiftData";
+import { useAllShifts } from "../hooks/useAllShifts";
 
 const ShiftLogView = () => {
-  const shiftData = useShiftData();
+  const { shiftData, loading } = useAllShifts();
   const updateData = useUpdateData();
 
   return (

@@ -47,9 +47,6 @@ const Navbar = () => {
               <Dropdown.Item>
                 <Link to="/updates">Recent Updates</Link>
               </Dropdown.Item>
-              <Dropdown.Item>
-                <Link to="/alllogs">Previous ShiftLogs</Link>
-              </Dropdown.Item>
               <Dropdown.Divider />
               {user ? (
                 <></>

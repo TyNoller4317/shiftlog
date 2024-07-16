@@ -16,6 +16,7 @@ import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied
 
 function ShiftViewTable({ tableData }) {
   const checkMobile = useCheckMobileScreen();
+  let screenHeight = window.innerHeight - 166;
 
   const formatDate = (props) => {
     return (
@@ -62,9 +63,14 @@ function ShiftViewTable({ tableData }) {
     <>
       <div
         className="ag-theme-quartz" // applying the Data Grid theme
-        style={{ height: 700 }} // the Data Grid will fill the size of the parent container
+        style={{ height: screenHeight }} // the Data Grid will fill the size of the parent container
       >
-        <AgGridReact rowData={tableData} columnDefs={colDefs} rowHeight={60} />
+        <AgGridReact
+          rowData={tableData}
+          columnDefs={colDefs}
+          rowHeight={60}
+          pagination={true}
+        />
       </div>
     </>
   ) : (

@@ -7,7 +7,6 @@ import LogDetail from "./pages/LogDetail";
 import DeleteLog from "./pages/deleteLog";
 import UpdateLogView from "./pages/UpdateLogView";
 import UpdatesView from "./pages/UpdatesView";
-import AllShifts from "./pages/AllShifts";
 import DeleteUpdate from "./pages/deleteUpdate";
 import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
 import { useLogout } from "./hooks/auth/useLogout";
@@ -23,7 +22,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<ShiftLogView />} />
-            <Route path="/alllogs" element={<AllShifts />} />
             <Route path="/create-log" element={<CreateLogView />} />
             <Route path="/:id" element={<LogDetail />} />
             <Route path="/delete/:id" element={<DeleteLog />} />
