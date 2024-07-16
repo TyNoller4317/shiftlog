@@ -39,11 +39,11 @@ function ShiftViewTable({ tableData }) {
 
   // Column Definitions: Defines the columns to be displayed.
   const [colDefs, setColDefs] = useState([
-    { field: "date", cellRenderer: formatDate, filter: true },
-    { field: "log_name", filter: true },
+    { field: "date", cellRenderer: formatDate, filter: true, flex: 1 },
+    { field: "log_name", filter: true, flex: 1 },
     {
       field: "critical_updates",
-      flex: 2,
+      flex: checkMobile ? 2 : 1,
       cellRenderer: removeHtml,
       filter: true,
       wrapText: true,
@@ -51,7 +51,7 @@ function ShiftViewTable({ tableData }) {
     },
     {
       field: "ticket_updates",
-      flex: 2,
+      flex: checkMobile ? 2 : 1,
       cellRenderer: removeHtml,
       filter: true,
       autoHeight: true,
@@ -63,7 +63,7 @@ function ShiftViewTable({ tableData }) {
     <>
       <div
         className="ag-theme-quartz" // applying the Data Grid theme
-        style={{ height: screenHeight }} // the Data Grid will fill the size of the parent container
+        style={{ height: screenHeight, width: "100%" }} // the Data Grid will fill the size of the parent container
       >
         <AgGridReact
           rowData={tableData}

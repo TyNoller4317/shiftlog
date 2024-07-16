@@ -1,4 +1,4 @@
-.tableCell:nth-child(1) {
+/* .tableCell:nth-child(1) {
   width: 10%;
 }
 
@@ -12,9 +12,9 @@
 
 .tableCell:nth-child(4) {
   width: 40%;
-}
+} */
 
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
   .tableCell:nth-child(1) {
     width: 100%;
   }
@@ -30,7 +30,7 @@
   .tableCell:nth-child(4) {
     width: 100%;
   }
-}
+} */
 
 .shiftlink {
   color: black;

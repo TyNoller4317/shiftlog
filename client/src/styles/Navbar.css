@@ -39,3 +39,11 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+.dropdown-item {
+  display: flex;
+}
+
+.navLink {
+  width: 100%;
+}

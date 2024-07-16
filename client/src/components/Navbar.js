@@ -40,8 +40,10 @@ const Navbar = () => {
           <Dropdown>
             <Dropdown.Toggle variant="" id="dropdown-basic"></Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item>
-                <Link to="/create-log">Create Log</Link>
+              <Dropdown.Item className="dropdown-item">
+                <Link className="navLink" to="/create-log">
+                  Create Log
+                </Link>
                 {/* <CreateLogModal /> */}
               </Dropdown.Item>
               <Dropdown.Item>
